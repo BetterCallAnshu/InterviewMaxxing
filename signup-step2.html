@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterviewMaxxing | Step 2: Customisation</title>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#050505] text-[#FAFAFA] min-h-screen font-body selection:bg-brand-lime selection:text-black">
+    <div class="fixed inset-0 grid-overlay-global pointer-events-none z-0"></div>
+
+    <!-- Header Navigation Shell -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-[#050505] border-b border-white/10 flex justify-between items-center px-6 py-4">
+        <div class="flex items-center gap-4">
+            <a href="signup-step1.html" class="text-brand-muted hover:text-brand-lime transition-colors active:scale-95 duration-75">
+                <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+            </a>
+            <h1 class="text-2xl font-bold tracking-tighter text-[#FAFAFA] font-headline">INTERVIEWMAXXING</h1>
+        </div>
+        <!-- Progress Bar Logic -->
+        <div class="hidden md:flex flex-col items-end gap-1">
+            <div class="flex gap-4 font-label text-[10px] uppercase tracking-widest">
+                <span class="text-brand-muted">01 PRE-FLIGHT</span>
+                <span class="text-brand-lime">02 CUSTOMISE</span>
+                <span class="text-brand-muted">03 CHECKOUT</span>
+            </div>
+            <div class="w-48 h-[2px] bg-white/10 relative overflow-hidden">
+                <div class="absolute inset-y-0 left-0 w-2/3 bg-brand-lime"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-24 pb-32 px-6 max-w-7xl mx-auto flex flex-col lg:flex-row gap-16">
+        <!-- Left Side: Customisation Form -->
+        <div class="flex-1 max-w-2xl">
+            <div class="mb-12">
+                <p class="font-label text-brand-cobalt text-xs mb-2 tracking-widest">STEP 02 / CALIBRATION</p>
+                <h2 class="text-5xl md:text-6xl font-headline leading-none text-white mb-4">MAKE IT YOURS.</h2>
+                <p class="text-brand-muted text-lg max-w-md mt-4">Tell us where you're headed. We'll calibrate everything backward from the role you need to win.</p>
+            </div>
+            <form class="space-y-16" id="customise-form">
+                <!-- Section A -->
+                <section>
+                    <label class="font-label text-brand-cobalt text-xs font-bold block mb-6 tracking-[0.2em] uppercase">SECTION A — YOUR TARGET ROLE</label>
+                    <div class="flex flex-wrap gap-3" id="role-container">
+                        <button type="button" class="role-btn px-5 py-2 border border-white/10 text-sm font-body hover:bg-white/5 transition-all" data-value="Software Engineer">Software Engineer</button>
+                        <button type="button" class="role-btn px-5 py-2 border border-white/10 text-sm font-body hover:bg-white/5 transition-all" data-value="Product Manager">Product Manager</button>
+                        <button type="button" class="role-btn px-5 py-2 border border-white/10 text-sm font-body hover:bg-white/5 transition-all" data-value="Consultant">Consultant</button>
+                        <button type="button" class="role-btn px-5 py-2 border border-white/10 text-sm font-body hover:bg-white/5 transition-all" data-value="Finance Analyst">Finance Analyst</button>
+                        <button type="button" class="role-btn px-5 py-2 border border-white/10 text-sm font-body hover:bg-white/5 transition-all" data-value="Marketing">Marketing</button>
+                        <button type="button" class="role-btn px-5 py-2 border border-white/10 text-sm font-body hover:bg-white/5 transition-all" data-value="Operations">Operations</button>
+                    </div>
+                </section>
+                
+                <!-- Section B -->
+                <section>
+                    <label class="font-label text-brand-cobalt text-xs font-bold block mb-6 tracking-[0.2em] uppercase">SECTION B — INTERVIEW FORMAT</label>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="format-container">
+                        <div class="format-btn bg-[#1A1A1A] border border-transparent p-5 flex items-center justify-between group cursor-pointer hover:bg-[#2E2E2E] transition-all" data-value="Behavioural">
+                            <div class="flex items-center gap-4">
+                                <span class="material-symbols-outlined text-brand-muted group-hover:text-brand-cobalt transition-colors">forum</span>
+                                <span class="text-brand-muted group-hover:text-white font-body text-sm">Behavioural</span>
+                            </div>
+                        </div>
+                        <div class="format-btn bg-[#1A1A1A] border border-transparent p-5 flex items-center justify-between group cursor-pointer hover:bg-[#2E2E2E] transition-all" data-value="Technical">
+                            <div class="flex items-center gap-4">
+                                <span class="material-symbols-outlined text-brand-muted group-hover:text-brand-cobalt transition-colors">terminal</span>
+                                <span class="text-brand-muted group-hover:text-white font-body text-sm">Technical</span>
+                            </div>
+                        </div>
+                        <div class="format-btn bg-[#1A1A1A] border border-transparent p-5 flex items-center justify-between group cursor-pointer hover:bg-[#2E2E2E] transition-all" data-value="Case Study">
+                            <div class="flex items-center gap-4">
+                                <span class="material-symbols-outlined text-brand-muted group-hover:text-brand-cobalt transition-colors">analytics</span>
+                                <span class="text-brand-muted group-hover:text-white font-body text-sm">Case Study</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section C -->
+                <section>
+                    <label class="font-label text-brand-cobalt text-xs font-bold block mb-6 tracking-[0.2em] uppercase">SECTION C — YOUR BIGGEST CHALLENGE</label>
+                    <div class="space-y-3" id="challenge-container">
+                        <div class="challenge-btn bg-[#1A1A1A] border-l-[3px] border-transparent p-6 hover:bg-[#2E2E2E] flex items-center gap-4 cursor-pointer transition-all" data-value="Freeze under pressure">
+                            <div class="w-4 h-4 rounded-full border border-brand-muted marker"></div>
+                            <span class="text-brand-muted font-body">I freeze under pressure</span>
+                        </div>
+                        <div class="challenge-btn bg-[#1A1A1A] border-l-[3px] border-transparent p-6 hover:bg-[#2E2E2E] flex items-center gap-4 cursor-pointer transition-all" data-value="Ramble and lose structure">
+                            <div class="w-4 h-4 rounded-full border border-brand-muted marker"></div>
+                            <span class="text-brand-muted font-body">I ramble and lose structure</span>
+                        </div>
+                        <div class="challenge-btn bg-[#1A1A1A] border-l-[3px] border-transparent p-6 hover:bg-[#2E2E2E] flex items-center gap-4 cursor-pointer transition-all" data-value="Body language">
+                            <div class="w-4 h-4 rounded-full border border-brand-muted marker"></div>
+                            <span class="text-brand-muted font-body">My body language lets me down</span>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Section D -->
+                <section>
+                    <label class="font-label text-brand-cobalt text-xs font-bold block mb-6 tracking-[0.2em] uppercase">SECTION D — EXPERIENCE LEVEL</label>
+                    <div class="relative pt-6 pb-12">
+                        <input id="experience-slider" class="w-full appearance-none bg-transparent custom-slider" max="4" min="0" step="1" type="range" value="1"/>
+                        <div class="flex justify-between mt-4 font-label text-[10px] text-brand-muted uppercase tracking-wider">
+                            <span>Fresher</span>
+                            <span>1-3 yrs</span>
+                            <span>3-5 yrs</span>
+                            <span>5+ yrs</span>
+                            <span>Senior</span>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Section E -->
+                <section>
+                    <label class="font-label text-brand-cobalt text-xs font-bold block mb-6 tracking-[0.2em] uppercase">SECTION E — PREFERRED LANGUAGE</label>
+                    <div class="relative">
+                        <select id="language-select" class="w-full appearance-none bg-[#1A1A1A] border border-white/10 px-5 py-4 text-white font-body focus:border-brand-cobalt focus:ring-0 outline-none">
+                            <option value="English">English</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Tamil">Tamil</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                            <span class="material-symbols-outlined text-brand-lime">expand_more</span>
+                        </div>
+                    </div>
+                </section>
+            </form>
+        </div>
+
+        <!-- Right Side: Sticky Summary Card -->
+        <aside class="hidden lg:block w-80 shrink-0">
+            <div class="sticky top-24 bg-[#1A1A1A] border-t-2 border-brand-cobalt p-8">
+                <div class="flex justify-between items-start mb-8">
+                    <h3 class="font-label text-xs font-bold text-white tracking-widest uppercase">Summary</h3>
+                    <span class="bg-brand-cobalt text-[10px] font-label px-2 py-0.5 text-white">ACTIVE</span>
+                </div>
+                <div class="space-y-6 mb-12">
+                    <div>
+                        <p class="font-label text-[10px] text-brand-muted mb-1">PLAN SELECTED</p>
+                        <p id="summary-plan" class="text-white font-headline text-2xl uppercase">LOADING...</p>
+                    </div>
+                    <div>
+                        <p class="font-label text-[10px] text-brand-muted mb-1">CREDITS</p>
+                        <p id="summary-credits" class="text-white font-body text-sm"></p>
+                    </div>
+                    <div>
+                        <p class="font-label text-[10px] text-brand-muted mb-1 min-h-[14px]">ROLE</p>
+                        <p id="summary-role" class="text-white font-body text-sm">--</p>
+                    </div>
+                    
+                    <div class="pt-6 border-t border-white/5">
+                        <div class="flex justify-between items-center text-brand-lime font-label">
+                            <span class="text-xs uppercase">Total due</span>
+                            <span id="summary-price" class="text-xl">₹0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Bottom Action Bar -->
+    <div class="fixed bottom-0 right-0 w-full md:w-auto p-6 md:p-10 z-[60] flex flex-col items-end gap-3 bg-[#050505]/95 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none border-t md:border-none border-white/10">
+        <span class="font-label text-[10px] text-brand-muted uppercase tracking-widest bg-[#050505]/80 px-2">Role & Challenge required *</span>
+        <button id="cta-continue" class="bg-[#333] text-[#777] font-headline text-xl px-12 py-5 flex items-center gap-4 transition-all w-full md:w-auto cursor-not-allowed">
+            CONTINUE TO CHECKOUT
+            <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+    </div>
+
+    <!-- Script to hook up all logic -->
+    <script src="js/layout.js"></script>
+    <script src="js/signup.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const state = window.SignupStore.getState();
+            // Default to starter if no plan
+            if(!state.plan) { window.SignupStore.updateState({plan: 'starter'}); }
+            
+            // Populate Summary defaults
+            const planData = window.SignupStore.PLANS[state.plan || 'starter'];
+            document.getElementById('summary-plan').innerText = planData.name;
+            document.getElementById('summary-credits').innerText = planData.credits;
+            
+            const price = state.billing === 'annual' ? planData.costAnnual : planData.costMonthly;
+            document.getElementById('summary-price').innerText = `₹${price}`;
+            
+            // UI elements
+            const roles = document.querySelectorAll('.role-btn');
+            const formats = document.querySelectorAll('.format-btn');
+            const challenges = document.querySelectorAll('.challenge-btn');
+            const slider = document.getElementById('experience-slider');
+            const langSelect = document.getElementById('language-select');
+            
+            const summaryRole = document.getElementById('summary-role');
+            const continueBtn = document.getElementById('cta-continue');
+            
+            // Local state shadow
+            let selectedRole = state.role;
+            let selectedFormats = state.formats || [];
+            let selectedChallenge = state.challenge;
+            let experience = state.experience;
+            let lang = state.language;
+
+            // Pre-select if value is in state
+            if(selectedRole) {
+                const btn = Array.from(roles).find(b => b.dataset.value === selectedRole);
+                if(btn) activateRole(btn);
+            }
+            if(selectedFormats.length > 0) {
+                selectedFormats.forEach(f => {
+                    const btn = Array.from(formats).find(b => b.dataset.value === f);
+                    if(btn) toggleFormat(btn, true);
+                });
+            }
+            if(selectedChallenge) {
+                const btn = Array.from(challenges).find(b => b.dataset.value === selectedChallenge);
+                if(btn) activateChallenge(btn);
+            }
+            slider.value = state.experience || "1";
+            langSelect.value = state.language || "English";
+            
+            checkValidity();
+
+            // Handlers
+            roles.forEach(btn => {
+                btn.addEventListener('click', () => {
+                   activateRole(btn);
+                   checkValidity(); 
+                });
+            });
+            
+            formats.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    toggleFormat(btn);
+                    checkValidity();
+                });
+            });
+
+            challenges.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    activateChallenge(btn);
+                    checkValidity();
+                });
+            });
+
+            slider.addEventListener('change', (e) => {
+                experience = e.target.value;
+            });
+
+            langSelect.addEventListener('change', (e) => {
+                lang = e.target.value;
+            });
+
+            continueBtn.addEventListener('click', () => {
+                if(!continueBtn.classList.contains('cursor-not-allowed')) {
+                    // Save to Store
+                    window.SignupStore.updateState({
+                        role: selectedRole,
+                        formats: selectedFormats,
+                        challenge: selectedChallenge,
+                        experience: experience,
+                        language: lang
+                    });
+                    window.location.href = 'signup-step3.html';
+                }
+            });
+
+            // UI Manipulation Fns
+            function activateRole(targetBtn) {
+                roles.forEach(btn => {
+                    btn.classList.replace('bg-brand-cobalt', 'border-white/10');
+                    btn.classList.remove('bg-brand-cobalt', 'text-white', 'font-bold');
+                    btn.classList.add('border', 'text-brand-muted');
+                    btn.innerHTML = btn.dataset.value; 
+                });
+                
+                targetBtn.classList.replace('border-white/10', 'bg-brand-cobalt');
+                targetBtn.classList.remove('border', 'text-brand-muted');
+                targetBtn.classList.add('bg-brand-cobalt', 'text-white', 'font-bold');
+                targetBtn.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-brand-lime mr-2 inline-block"></span> ${targetBtn.dataset.value}`;
+                
+                selectedRole = targetBtn.dataset.value;
+                summaryRole.innerText = selectedRole;
+            }
+
+            function toggleFormat(targetBtn, forceActive) {
+                const val = targetBtn.dataset.value;
+                const isActive = targetBtn.classList.contains('bg-brand-cobalt/10');
+                
+                if(!isActive || forceActive) {
+                    targetBtn.classList.add('bg-brand-cobalt/10', 'border-brand-cobalt');
+                    targetBtn.classList.remove('bg-[#1A1A1A]', 'border-transparent');
+                    targetBtn.querySelector('span:last-child').classList.replace('text-brand-muted', 'text-white');
+                    targetBtn.querySelector('span:first-child').classList.replace('text-brand-muted', 'text-brand-cobalt');
+                    if(!targetBtn.querySelector('.material-symbols-outlined:last-child')) {
+                        targetBtn.insertAdjacentHTML('beforeend', `<span class="material-symbols-outlined text-brand-lime check-icon">check_circle</span>`);
+                    }
+                    if(!selectedFormats.includes(val)) selectedFormats.push(val);
+                } else {
+                    targetBtn.classList.remove('bg-brand-cobalt/10', 'border-brand-cobalt');
+                    targetBtn.classList.add('bg-[#1A1A1A]', 'border-transparent');
+                    targetBtn.querySelector('span:first-child').classList.replace('text-brand-cobalt', 'text-brand-muted');
+                    const check = targetBtn.querySelector('.check-icon');
+                    if(check) check.remove();
+                    selectedFormats = selectedFormats.filter(v => v !== val);
+                }
+            }
+
+            function activateChallenge(targetBtn) {
+                challenges.forEach(btn => {
+                    btn.classList.remove('bg-brand-cobalt/5', 'border-brand-cobalt');
+                    btn.classList.add('border-transparent');
+                    btn.querySelector('.marker').classList.replace('border-brand-cobalt', 'border-brand-muted');
+                    btn.querySelector('.marker').innerHTML = '';
+                    btn.querySelector('span').classList.replace('text-white', 'text-brand-muted');
+                });
+                
+                targetBtn.classList.remove('border-transparent');
+                targetBtn.classList.add('bg-brand-cobalt/5', 'border-brand-cobalt');
+                targetBtn.querySelector('.marker').classList.replace('border-brand-muted', 'border-brand-cobalt');
+                targetBtn.querySelector('.marker').innerHTML = '<div class="w-2 h-2 rounded-full bg-brand-cobalt mx-auto mt-0.5"></div>';
+                targetBtn.querySelector('span').classList.replace('text-brand-muted', 'text-white');
+                
+                selectedChallenge = targetBtn.dataset.value;
+            }
+
+            function checkValidity() {
+                if(selectedRole && selectedChallenge) {
+                    continueBtn.classList.remove('cursor-not-allowed', 'bg-[#333]', 'text-[#777]');
+                    continueBtn.classList.add('bg-brand-lime', 'text-black', 'hover:translate-x-[-4px]', 'shadow-[4px_4px_0_#3B5BDB]');
+                } else {
+                    continueBtn.classList.add('cursor-not-allowed', 'bg-[#333]', 'text-[#777]');
+                    continueBtn.classList.remove('bg-brand-lime', 'text-black', 'hover:translate-x-[-4px]', 'shadow-[4px_4px_0_#3B5BDB]');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

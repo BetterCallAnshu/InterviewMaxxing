@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterviewMaxxing | Pricing</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#050505] text-[#FAFAFA] font-body">
+
+    <main class="relative pt-32 pb-24 px-6 max-w-7xl mx-auto">
+        
+        <div class="text-center mb-16 animate-on-scroll">
+            <h1 class="font-headline text-6xl md:text-8xl tracking-tight leading-none mb-8">PICK YOUR LEVEL.</h1>
+            
+            <div class="inline-flex bg-[#1a1a1a] p-1 border border-white/10 rounded-full chiseled-edge mb-8">
+                <button id="toggle-monthly" class="px-6 py-2 rounded-full font-label text-xs uppercase tracking-widest bg-brand-cobalt text-white transition-colors duration-300">Monthly</button>
+                <button id="toggle-annual" class="px-6 py-2 rounded-full font-label text-xs uppercase tracking-widest text-brand-muted hover:text-white transition-colors duration-300">Annually <span class="text-brand-lime ml-1">— Save 20%</span></button>
+            </div>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-32 animate-on-scroll stagger-1">
+            <!-- STARTER -->
+            <div class="bg-brand-surface border border-white/5 chiseled-edge p-8 flex flex-col justify-between hover:border-white/20 transition-colors">
+                <div class="space-y-6">
+                    <div>
+                        <h2 class="font-headline text-4xl mb-4">STARTER</h2>
+                        <div class="flex items-baseline gap-1">
+                            <span class="font-headline text-6xl text-white">₹0</span>
+                            <span class="text-brand-muted font-body text-sm">/month</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 font-label text-xs uppercase tracking-tight text-white/80">
+                        <li class="flex items-center gap-3"><span class="text-brand-lime">→</span> 5 sessions / mo</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-lime">→</span> Basic feedback</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-lime">→</span> 100 questions</li>
+                        <li class="flex items-center gap-3 opacity-50"><span class="text-brand-muted">🔒</span> Non-verbal analysis</li>
+                        <li class="flex items-center gap-3 opacity-50"><span class="text-brand-muted">🔒</span> Live copilot</li>
+                    </ul>
+                </div>
+                <a href="signup-step1.html?plan=starter" class="mt-12 w-full text-center py-4 border border-white/20 font-label text-xs uppercase tracking-widest hover:bg-white/5 transition-all">Start Free →</a>
+            </div>
+
+            <!-- MAXXER -->
+            <div class="relative bg-brand-surface chiseled-edge p-8 flex flex-col justify-between scale-105 z-20 border-2 border-brand-cobalt bg-brand-cobalt/5 shadow-[0_0_80px_rgba(59,91,219,0.15)]">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-lime text-black px-4 py-1 font-label text-[10px] font-bold tracking-widest uppercase">MOST POPULAR</div>
+                
+                <div class="space-y-6 relative z-10">
+                    <div>
+                        <h2 class="font-headline text-4xl mb-4">MAXXER</h2>
+                        <div class="flex items-baseline gap-1">
+                            <span class="font-headline text-6xl text-white price-maxxer">₹499</span>
+                            <span class="text-brand-muted font-body text-sm">/month</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 font-label text-xs uppercase tracking-tight text-white/90">
+                        <li class="flex items-center gap-3"><span class="text-brand-lime">→</span> Unlimited sessions</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-lime">→</span> Full analysis breakdown</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-lime">→</span> Non-verbal coaching</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-lime">→</span> 5,000+ questions</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-lime">→</span> Confidence arcs</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-lime">→</span> All interview formats</li>
+                    </ul>
+                </div>
+                <a href="signup-step1.html?plan=maxxer" class="mt-12 w-full text-center py-4 bg-brand-lime text-black font-label text-xs font-bold uppercase tracking-widest hover:brightness-110 active:translate-y-[-2px] transition-all cta-shimmer shadow-[4px_4px_0_#3B5BDB]">Start Maxxing →</a>
+            </div>
+
+            <!-- LOCKED IN -->
+            <div class="bg-brand-surface border border-white/5 chiseled-edge p-8 flex flex-col justify-between hover:border-white/20 transition-colors">
+                <div class="space-y-6">
+                    <div>
+                        <h2 class="font-headline text-4xl mb-4 text-[#FAFAFA]">LOCKED IN</h2>
+                        <div class="flex items-baseline gap-1">
+                            <span class="font-headline text-6xl text-white price-locked">₹999</span>
+                            <span class="text-brand-muted font-body text-sm">/month</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 font-label text-xs uppercase tracking-tight text-white/80">
+                        <li class="flex items-center gap-3"><span class="text-brand-lime">→</span> Everything in Maxxer</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-cobalt">★</span> Live AI copilot</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-cobalt">★</span> Human coach reviews</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-cobalt">★</span> Priority AI servers</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-cobalt">★</span> Custom company prep</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-cobalt">★</span> 1-on-1 strategy calls</li>
+                    </ul>
+                </div>
+                <a href="signup-step1.html?plan=lockedin" class="mt-12 w-full text-center py-4 border border-brand-cobalt text-brand-cobalt font-label text-xs uppercase tracking-widest hover:bg-brand-cobalt hover:text-white active:translate-y-[-2px] transition-all">Go Locked In →</a>
+            </div>
+        </div>
+
+        <!-- Feature Comparison Table -->
+        <div class="overflow-x-auto mb-32 animate-on-scroll stagger-2">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="border-b border-white/20 font-label text-xs uppercase tracking-widest text-brand-muted bg-brand-bg sticky top-0">
+                        <th class="py-6 min-w-[200px]">Features</th>
+                        <th class="py-6 px-4 text-center">Starter</th>
+                        <th class="py-6 px-4 text-center text-brand-lime">Maxxer</th>
+                        <th class="py-6 px-4 text-center text-brand-cobalt">Locked In</th>
+                    </tr>
+                </thead>
+                <tbody class="font-body text-sm">
+                    <!-- Row -->
+                    <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                        <td class="py-4 font-label text-xs uppercase">Concurrent Sessions</td>
+                        <td class="py-4 px-4 text-center">5 / month</td>
+                        <td class="py-4 px-4 text-center">Unlimited</td>
+                        <td class="py-4 px-4 text-center">Unlimited</td>
+                    </tr>
+                    <!-- Row -->
+                    <tr class="border-b border-white/5 bg-[#0a0a0a] hover:bg-white/5 transition-colors">
+                        <td class="py-4 font-label text-xs uppercase">Question Bank</td>
+                        <td class="py-4 px-4 text-center">100 Basic</td>
+                        <td class="py-4 px-4 text-center text-brand-lime">5,000+ Curated</td>
+                        <td class="py-4 px-4 text-center text-brand-cobalt bg-brand-cobalt/5">Custom Parsing</td>
+                    </tr>
+                    <!-- Row -->
+                    <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                        <td class="py-4 font-label text-xs uppercase">Non-Verbal Tracking</td>
+                        <td class="py-4 px-4 text-center text-brand-muted">—</td>
+                        <td class="py-4 px-4 text-center text-brand-lime font-bold">✓</td>
+                        <td class="py-4 px-4 text-center text-brand-cobalt font-bold">✓</td>
+                    </tr>
+                    <!-- Row -->
+                    <tr class="border-b border-white/5 bg-[#0a0a0a] hover:bg-white/5 transition-colors">
+                        <td class="py-4 font-label text-xs uppercase">Live AI Copilot</td>
+                        <td class="py-4 px-4 text-center text-brand-muted">—</td>
+                        <td class="py-4 px-4 text-center text-brand-muted">—</td>
+                        <td class="py-4 px-4 text-center text-brand-cobalt font-bold bg-brand-cobalt/5">★ Exclusive</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- FAQ Strip -->
+        <div class="max-w-3xl mx-auto space-y-4 mb-32 animate-on-scroll stagger-3">
+            <h3 class="font-headline text-4xl mb-8 text-center">FREQUENTLY ASKED</h3>
+            
+            <details class="bg-[#1a1a1a] p-6 chiseled-edge group cursor-pointer border border-white/5 open:border-brand-cobalt transition-colors">
+                <summary class="font-body font-bold text-lg list-none flex justify-between items-center outline-none focus:text-brand-lime">
+                    Can I switch plans anytime?
+                    <span class="material-symbols-outlined text-brand-lime group-open:rotate-45 transition-transform duration-300">add</span>
+                </summary>
+                <p class="font-label text-sm text-brand-muted mt-4 leading-relaxed tracking-wider uppercase">Yes. Start on Starter, upgrade to Maxxer before your big interview, downgrade when you sign your offer. Prorated adjustments applied automatically.</p>
+            </details>
+
+            <details class="bg-[#1a1a1a] p-6 chiseled-edge group cursor-pointer border border-white/5 open:border-brand-cobalt transition-colors">
+                <summary class="font-body font-bold text-lg list-none flex justify-between items-center outline-none focus:text-brand-lime">
+                    Is there a refund policy?
+                    <span class="material-symbols-outlined text-brand-lime group-open:rotate-45 transition-transform duration-300">add</span>
+                </summary>
+                <p class="font-label text-sm text-brand-muted mt-4 leading-relaxed tracking-wider uppercase">7-Day Maxxer Guarantee. If you aren't seeing performance gains within 7 days, cancel and receive a full refund through the dashboard. No questions asked.</p>
+            </details>
+            
+            <details class="bg-[#1a1a1a] p-6 chiseled-edge group cursor-pointer border border-white/5 open:border-brand-cobalt transition-colors">
+                <summary class="font-body font-bold text-lg list-none flex justify-between items-center outline-none focus:text-brand-lime">
+                    Can institutions get bulk access?
+                    <span class="material-symbols-outlined text-brand-lime group-open:rotate-45 transition-transform duration-300">add</span>
+                </summary>
+                <p class="font-label text-sm text-brand-muted mt-4 leading-relaxed tracking-wider uppercase">Yes, reach out via the Contact page to set up a cohort, university block, or corporate bootcamp license.</p>
+            </details>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="flex flex-wrap justify-center gap-12 font-label text-[10px] text-brand-muted uppercase tracking-widest animate-on-scroll">
+            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">lock</span> 256-bit SSL</span>
+            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">credit_card</span> PCI Compliant</span>
+            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">assignment_return</span> 7-day refund</span>
+            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg text-brand-lime">star</span> 4.9 RATED</span>
+        </div>
+    </main>
+
+    <script src="js/layout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const monthlyBtn = document.getElementById('toggle-monthly');
+            const annualBtn = document.getElementById('toggle-annual');
+            const priceMaxxer = document.querySelector('.price-maxxer');
+            const priceLocked = document.querySelector('.price-locked');
+            
+            let isAnnual = false;
+            
+            const updatePricing = () => {
+                if(isAnnual) {
+                    monthlyBtn.classList.replace('bg-brand-cobalt', 'text-brand-muted');
+                    monthlyBtn.classList.remove('text-white');
+                    annualBtn.classList.remove('text-brand-muted');
+                    annualBtn.classList.add('bg-brand-cobalt', 'text-white');
+                    
+                    priceMaxxer.innerText = '₹399';
+                    priceLocked.innerText = '₹799';
+                } else {
+                    annualBtn.classList.replace('bg-brand-cobalt', 'text-brand-muted');
+                    annualBtn.classList.remove('text-white');
+                    monthlyBtn.classList.remove('text-brand-muted');
+                    monthlyBtn.classList.add('bg-brand-cobalt', 'text-white');
+                    
+                    priceMaxxer.innerText = '₹499';
+                    priceLocked.innerText = '₹999';
+                }
+            };
+            
+            monthlyBtn.addEventListener('click', () => { isAnnual = false; updatePricing(); });
+            annualBtn.addEventListener('click', () => { isAnnual = true; updatePricing(); });
+        });
+    </script>
+</body>
+</html>

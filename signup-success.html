@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success | INTERVIEWMAXXING</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .draw-check {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: draw 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        @keyframes draw {
+            to { stroke-dashoffset: 0; }
+        }
+    </style>
+</head>
+<body class="bg-[#050505] text-[#FAFAFA] font-body flex items-center justify-center min-h-screen relative overflow-hidden">
+    <!-- Overlay & Particles Canvas -->
+    <div class="fixed inset-0 grid-overlay-global pointer-events-none z-0"></div>
+    <canvas id="confetti" class="fixed inset-0 pointer-events-none z-10"></canvas>
+    
+    <main class="relative z-20 text-center flex flex-col items-center px-6 animate-on-scroll">
+        <!-- Animated SVG Check -->
+        <div class="mb-8 relative">
+            <div class="w-32 h-32 rounded-full border border-brand-lime/20 bg-brand-lime/5 flex items-center justify-center">
+                <svg class="w-16 h-16 text-brand-lime" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path class="draw-check" stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+            <div class="absolute inset-0 bg-brand-lime/20 blur-3xl rounded-full translate-y-4"></div>
+        </div>
+
+        <h1 class="font-headline text-6xl md:text-8xl tracking-tight leading-none mb-4">YOU'RE LOCKED IN.</h1>
+        <p class="font-body text-brand-muted text-lg md:text-xl max-w-md mx-auto mb-12">Your account is live. Let's run your first session.</p>
+
+        <a href="index.html" class="bg-brand-lime text-black font-label text-sm uppercase font-bold tracking-widest px-8 py-4 hover:brightness-110 active:translate-y-[-2px] transition-all cta-shimmer shadow-[4px_4px_0_#3B5BDB] mb-6">
+            Start My First Session →
+        </a>
+
+        <p class="font-label text-xs uppercase tracking-widest text-[#555]">
+            Taking you in <span id="countdown" class="text-brand-cobalt font-bold">8</span>s...
+        </p>
+    </main>
+
+    <script src="js/layout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Countdown
+            let count = 8;
+            const counterEl = document.getElementById('countdown');
+            const interval = setInterval(() => {
+                count--;
+                counterEl.innerText = count;
+                if(count <= 0) {
+                    clearInterval(interval);
+                    window.location.href = 'index.html'; // Fallback redirect to home since no dashboard
+                }
+            }, 1000);
+
+            // Confetti implementation
+            const canvas = document.getElementById('confetti');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const particles = [];
+            const colors = ['#AAFF00', '#3B5BDB', '#FFFFFF'];
+
+            for (let i = 0; i < 100; i++) {
+                particles.push({
+                    x: canvas.width / 2,
+                    y: canvas.height / 2,
+                    r: Math.random() * 4 + 2,
+                    dx: Math.random() * 20 - 10,
+                    dy: Math.random() * -20 - 5,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    life: 1
+                });
+            }
+
+            // Gravity & Friction
+            const animate = () => {
+                requestAnimationFrame(animate);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                let anyAlive = false;
+                particles.forEach(p => {
+                    if (p.life > 0) {
+                        anyAlive = true;
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                        ctx.fillStyle = p.color;
+                        ctx.globalAlpha = p.life;
+                        ctx.fill();
+
+                        p.x += p.dx;
+                        p.y += p.dy;
+                        p.dy += 0.5; // gravity
+                        p.dx *= 0.99; // friction
+                        p.life -= 0.01;
+                    }
+                });
+                
+                if(!anyAlive) ctx.globalAlpha = 1; // Reset alpha for other drawn elements across app
+            };
+            animate();
+        });
+    </script>
+</body>
+</html>

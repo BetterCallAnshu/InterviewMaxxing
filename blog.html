@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterviewMaxxing | Blog</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        headline: ['Bebas Neue', 'sans-serif'],
+                        body: ['DM Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                        label: ['DM Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            cobalt: '#2563EB',
+                            lime: '#A3E635',
+                            'lime-tint': 'rgba(163,230,53,0.08)',
+                            surface: '#0d0d0d',
+                            muted: '#6B7280',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .chiseled-edge {
+            clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+        }
+        .chiseled-sm {
+            clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stagger-1 { transition-delay: 0.05s; }
+        .stagger-2 { transition-delay: 0.15s; }
+        .stagger-3 { transition-delay: 0.25s; }
+        .stagger-4 { transition-delay: 0.35s; }
+        .stagger-5 { transition-delay: 0.45s; }
+
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Horizontal rule with label */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 3rem 0 2rem;
+        }
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.08);
+        }
+
+        /* Read time pill */
+        .pill {
+            display: inline-block;
+            padding: 2px 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-family: 'DM Sans', sans-serif;
+            color: #6B7280;
+        }
+
+        /* Glowing cobalt badge */
+        .badge-cobalt {
+            background: rgba(37,99,235,0.12);
+            border: 1px solid rgba(37,99,235,0.4);
+            color: #60A5FA;
+            padding: 2px 10px;
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        /* Tag */
+        .tag-lime {
+            background: rgba(163,230,53,0.08);
+            border: 1px solid rgba(163,230,53,0.15);
+            color: #A3E635;
+            padding: 2px 10px;
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        /* List-style post */
+        .list-post {
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1.5rem;
+            transition: background 0.2s;
+        }
+        .list-post:first-child { padding-top: 0; }
+        .list-post:hover { padding-left: 8px; }
+
+        /* Stat callout */
+        .stat-box {
+            border: 1px solid rgba(37,99,235,0.25);
+            background: rgba(37,99,235,0.06);
+            padding: 1.5rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-[#050505] text-[#FAFAFA] font-body">
+
+    <!-- Nav hint bar -->
+    <div class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-[#050505]/90 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <span class="font-headline text-xl tracking-widest text-brand-cobalt">INTERVIEW<span class="text-white">MAXXING</span></span>
+            <span class="font-label text-[10px] uppercase tracking-widest text-brand-muted">The Job-Seeker's Intelligence Feed</span>
+        </div>
+    </div>
+
+    <main class="relative pt-32 pb-24 px-6 max-w-7xl mx-auto">
+
+        <!-- Hero heading + filters -->
+        <div class="mb-12 animate-on-scroll">
+            <p class="font-mono text-brand-cobalt text-xs tracking-widest mb-3">// VOLUME 12 · APRIL 2026</p>
+            <h1 class="font-headline text-6xl md:text-8xl tracking-tight leading-none mb-8 uppercase">LEVEL UP YOUR <br><span class="text-brand-cobalt">INTERVIEW IQ.</span></h1>
+
+            <div class="flex overflow-x-auto gap-4 font-label text-[10px] uppercase tracking-widest pb-4 scrollbar-hide">
+                <button class="bg-brand-cobalt text-white px-5 py-2 whitespace-nowrap chiseled-sm">All</button>
+                <button class="border border-white/10 text-brand-muted hover:bg-white/5 hover:text-white px-5 py-2 transition-colors whitespace-nowrap">Interview Tips</button>
+                <button class="border border-white/10 text-brand-muted hover:bg-white/5 hover:text-white px-5 py-2 transition-colors whitespace-nowrap">Resume</button>
+                <button class="border border-white/10 text-brand-muted hover:bg-white/5 hover:text-white px-5 py-2 transition-colors whitespace-nowrap">Salary Negotiation</button>
+                <button class="border border-white/10 text-brand-muted hover:bg-white/5 hover:text-white px-5 py-2 transition-colors whitespace-nowrap">Anxiety</button>
+                <button class="border border-white/10 text-brand-muted hover:bg-white/5 hover:text-white px-5 py-2 transition-colors whitespace-nowrap">Industry Guides</button>
+                <button class="border border-white/10 text-brand-muted hover:bg-white/5 hover:text-white px-5 py-2 transition-colors whitespace-nowrap">AI Tools</button>
+                <button class="border border-white/10 text-brand-muted hover:bg-white/5 hover:text-white px-5 py-2 transition-colors whitespace-nowrap">System Design</button>
+                <button class="border border-white/10 text-brand-muted hover:bg-white/5 hover:text-white px-5 py-2 transition-colors whitespace-nowrap">Negotiation</button>
+            </div>
+        </div>
+
+        <!-- MAIN LAYOUT -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 items-start">
+
+            <!-- ── LEFT: 3 cols ── -->
+            <div class="lg:col-span-3 space-y-16">
+
+                <!-- ① FEATURED -->
+                <article class="bg-brand-surface border border-brand-cobalt chiseled-edge p-8 md:p-12 hover:border-brand-cobalt/80 transition-colors animate-on-scroll stagger-1">
+                    <div class="mb-6 flex items-center justify-between font-label text-[10px] uppercase tracking-widest">
+                        <span class="tag-lime">Interview Tips</span>
+                        <span class="text-brand-muted">8 MIN READ</span>
+                    </div>
+                    <h2 class="font-headline text-5xl md:text-6xl mb-4 leading-tight">How to Answer 'Tell Me About Yourself' Without Fumbling</h2>
+                    <p class="font-body text-brand-muted text-lg leading-relaxed mb-3 max-w-2xl">The most common interview opening is also where 60% of candidates lose their audience. Learn the inverted pyramid structure to nail the first 90 seconds perfectly every time — and leave the interviewer wanting more, not checking their calendar.</p>
+                    <p class="font-body text-brand-muted text-base leading-relaxed mb-8 max-w-2xl">We break down the three-act structure of a compelling self-introduction: your anchor (where you are), your arc (how you got here), and your aim (why this role). With a live example from a candidate who went from rejected to referral in two attempts.</p>
+                    <div class="flex items-center justify-between flex-wrap gap-4">
+                        <a href="#" class="font-label text-sm uppercase text-brand-cobalt font-bold tracking-widest hover:underline flex items-center gap-2">Read Complete Guide →</a>
+                        <span class="font-mono text-[10px] text-brand-muted">A. YADAV · OCT 28</span>
+                    </div>
+                </article>
+
+                <!-- ② CARD GRID 1 — Frameworks + Data -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 animate-on-scroll stagger-2">
+
+                    <article class="bg-[#0a0a0a] border border-white/10 chiseled-edge p-8 hover:-translate-y-2 hover:border-brand-cobalt transition-all group flex flex-col">
+                        <span class="font-label text-[10px] uppercase tracking-widest text-brand-muted mb-4 block group-hover:text-brand-lime transition-colors">Frameworks</span>
+                        <h3 class="font-bold text-2xl mb-4 leading-snug">The STAR Method: Your Cheat Code for Behavioural Rounds</h3>
+                        <p class="font-body text-brand-muted text-sm mb-4 flex-1">Behavioural interviews are not storytelling competitions — they're structured evidence reviews. STAR gives you a formula to anchor your experience into measurable impact metrics, so your stories sound less like anecdotes and more like data sheets. We walk through five real examples across different experience levels, from fresh graduates to 5-year engineers, showing how to adapt the framework without sounding rehearsed.</p>
+                        <div class="mt-auto flex justify-between items-center font-label text-[10px] uppercase tracking-widest">
+                            <span class="text-brand-lime group-hover:underline cursor-pointer">Read More →</span>
+                            <span class="text-brand-muted border-l border-white/10 pl-4">A. YADAV · OCT 24</span>
+                        </div>
+                    </article>
+
+                    <article class="bg-[#0a0a0a] border border-white/10 chiseled-edge p-8 hover:-translate-y-2 hover:border-brand-cobalt transition-all group flex flex-col">
+                        <span class="font-label text-[10px] uppercase tracking-widest text-brand-muted mb-4 block group-hover:text-brand-lime transition-colors">Data &amp; Insights</span>
+                        <h3 class="font-bold text-2xl mb-4 leading-snug">Why 65% of Qualified Candidates Still Fail Tech Interviews</h3>
+                        <p class="font-body text-brand-muted text-sm mb-4 flex-1">We analyzed 500,000 mock interview sessions across our platform over 18 months. The single biggest point of failure wasn't knowledge gaps — it was non-verbal communication. Filler words, poor eye contact proxies on video calls, and rushed pacing caused skilled engineers to lose offers they deserved. This deep-dive breaks down the exact failure modes by interview stage and provides a 10-minute pre-call routine to reset your composure.</p>
+                        <div class="mt-auto flex justify-between items-center font-label text-[10px] uppercase tracking-widest">
+                            <span class="text-brand-lime group-hover:underline cursor-pointer">Read More →</span>
+                            <span class="text-brand-muted border-l border-white/10 pl-4">Data Team · OCT 18</span>
+                        </div>
+                    </article>
+
+                    <article class="bg-[#0a0a0a] border border-white/10 chiseled-edge p-8 hover:-translate-y-2 hover:border-brand-cobalt transition-all group flex flex-col">
+                        <span class="font-label text-[10px] uppercase tracking-widest text-brand-muted mb-4 block group-hover:text-brand-lime transition-colors">Resume AI</span>
+                        <h3 class="font-bold text-2xl mb-4 leading-snug">ATS 101: Why Your Resume Gets Ghosted Before It's Read</h3>
+                        <p class="font-body text-brand-muted text-sm mb-4 flex-1">Beautiful templates are quietly killing your application rate. Fancy columns, icons, and multi-column layouts break Applicant Tracking Systems that parse top-to-bottom, left-to-right. We reveal the brutalist resume structure — single column, keyword-rich, achievement-first — that parses perfectly across all major ATS platforms including Workday, Greenhouse, and Lever. Includes a free template and a 12-point ATS score checklist.</p>
+                        <div class="mt-auto flex justify-between items-center font-label text-[10px] uppercase tracking-widest">
+                            <span class="text-brand-lime group-hover:underline cursor-pointer">Read More →</span>
+                            <span class="text-brand-muted border-l border-white/10 pl-4">K. GARG · OCT 12</span>
+                        </div>
+                    </article>
+
+                    <article class="bg-[#0a0a0a] border border-white/10 chiseled-edge p-8 hover:-translate-y-2 hover:border-brand-cobalt transition-all group flex flex-col">
+                        <span class="font-label text-[10px] uppercase tracking-widest text-brand-muted mb-4 block group-hover:text-brand-lime transition-colors">Psychology</span>
+                        <h3 class="font-bold text-2xl mb-4 leading-snug">Managing Interview Anxiety: What Actually Works</h3>
+                        <p class="font-body text-brand-muted text-sm mb-4 flex-1">The advice to "just be yourself" is useless when your nervous system is in fight-or-flight. We cover evidence-based techniques: box breathing (4-4-4-4), cognitive reframing before the call, and the 'power flip' technique — a method for regaining conversational control when you blank mid-answer. Plus: why caffeine two hours before an interview is the single worst thing you can do, and what to drink instead.</p>
+                        <div class="mt-auto flex justify-between items-center font-label text-[10px] uppercase tracking-widest">
+                            <span class="text-brand-lime group-hover:underline cursor-pointer">Read More →</span>
+                            <span class="text-brand-muted border-l border-white/10 pl-4">Z. AHMED · OCT 4</span>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- ③ STAT BANNER -->
+                <div class="grid grid-cols-3 gap-4 animate-on-scroll stagger-3">
+                    <div class="stat-box chiseled-sm">
+                        <p class="font-headline text-4xl text-brand-cobalt">500K+</p>
+                        <p class="font-label text-[10px] uppercase tracking-widest text-brand-muted mt-1">Mock Sessions</p>
+                    </div>
+                    <div class="stat-box chiseled-sm">
+                        <p class="font-headline text-4xl text-brand-lime">3.4×</p>
+                        <p class="font-label text-[10px] uppercase tracking-widest text-brand-muted mt-1">Offer Rate Uplift</p>
+                    </div>
+                    <div class="stat-box chiseled-sm">
+                        <p class="font-headline text-4xl text-white">92%</p>
+                        <p class="font-label text-[10px] uppercase tracking-widest text-brand-muted mt-1">User Satisfaction</p>
+                    </div>
+                </div>
+
+                <!-- ④ SECTION DIVIDER -->
+                <div class="section-divider animate-on-scroll stagger-3">
+                    <span class="font-label text-[10px] uppercase tracking-widest text-brand-muted whitespace-nowrap">LATEST GUIDES</span>
+                </div>
+
+                <!-- ⑤ WIDE CARD — Salary Negotiation -->
+                <article class="bg-brand-surface border border-white/15 chiseled-edge p-8 md:p-10 hover:border-brand-lime/40 transition-colors animate-on-scroll stagger-4 group">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3 mb-5">
+                                <span class="badge-cobalt">Salary Negotiation</span>
+                                <span class="pill">11 MIN READ</span>
+                            </div>
+                            <h3 class="font-headline text-4xl md:text-5xl mb-4 group-hover:text-brand-lime transition-colors leading-tight">The Silence Strategy: How Saying Nothing Earns You ₹3–8 LPA More</h3>
+                            <p class="font-body text-brand-muted text-base leading-relaxed mb-4">Most candidates volunteer a number the second an HR asks "what are your expectations?" — and they leave money on the table every time. The silence strategy is about reversing the information flow. We teach you the exact script, the legal limits on what employers can ask in various states, and how to anchor high without sounding entitled.</p>
+                            <p class="font-body text-brand-muted text-sm leading-relaxed mb-6">Includes a breakdown of 6 real salary negotiation transcripts, what worked, what backfired, and the one phrase that increased offers by an average of 14% in our dataset.</p>
+                            <a href="#" class="font-label text-sm uppercase text-brand-lime font-bold tracking-widest hover:underline">Read Full Strategy →</a>
+                        </div>
+                        <div class="md:w-48 shrink-0 bg-[#0a0a0a] border border-white/10 p-5 flex flex-col gap-3">
+                            <p class="font-label text-[10px] uppercase tracking-widest text-brand-muted">Quick Stats</p>
+                            <div>
+                                <p class="font-headline text-3xl text-brand-lime">+14%</p>
+                                <p class="font-label text-[10px] text-brand-muted uppercase">Avg. offer increase</p>
+                            </div>
+                            <div>
+                                <p class="font-headline text-3xl text-white">6</p>
+                                <p class="font-label text-[10px] text-brand-muted uppercase">Real transcripts</p>
+                            </div>
+                            <div>
+                                <p class="font-headline text-3xl text-brand-cobalt">2 min</p>
+                                <p class="font-label text-[10px] text-brand-muted uppercase">To learn the script</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ⑥ CARD GRID 2 — System Design + AI Tools -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 animate-on-scroll stagger-4">
+
+                    <article class="bg-[#0a0a0a] border border-white/10 chiseled-edge p-8 hover:-translate-y-2 hover:border-brand-cobalt transition-all group flex flex-col">
+                        <span class="font-label text-[10px] uppercase tracking-widest text-brand-muted mb-4 block group-hover:text-brand-lime transition-colors">System Design</span>
+                        <h3 class="font-bold text-2xl mb-4 leading-snug">Cracking System Design at FAANG: From Vague to Precise in 45 Minutes</h3>
+                        <p class="font-body text-brand-muted text-sm mb-4 flex-1">System design interviews are open-ended by design — which means interviewers are evaluating how you think, not just what you know. We cover the five-step framework used by L5+ engineers: clarify requirements, define constraints, draw the architecture, identify bottlenecks, and propose tradeoffs. Includes walkthroughs for designing a URL shortener, a ride-sharing backend, and a real-time notification system.</p>
+                        <div class="mt-auto flex justify-between items-center font-label text-[10px] uppercase tracking-widest">
+                            <span class="text-brand-lime group-hover:underline cursor-pointer">Read More →</span>
+                            <span class="text-brand-muted border-l border-white/10 pl-4">V. RAJ · NOV 2</span>
+                        </div>
+                    </article>
+
+                    <article class="bg-[#0a0a0a] border border-white/10 chiseled-edge p-8 hover:-translate-y-2 hover:border-brand-cobalt transition-all group flex flex-col">
+                        <span class="font-label text-[10px] uppercase tracking-widest text-brand-muted mb-4 block group-hover:text-brand-lime transition-colors">AI Tools</span>
+                        <h3 class="font-bold text-2xl mb-4 leading-snug">Using AI to Prep Smarter: The 7 Prompts That Actually Help</h3>
+                        <p class="font-body text-brand-muted text-sm mb-4 flex-1">AI can be your mock interviewer, script coach, resume critic, and negotiation trainer — if you know how to prompt it correctly. We share the 7 prompts our team uses internally to simulate HR rounds, get role-specific question banks, and stress-test answers before the real call. Also covers what AI can't do: simulate the discomfort of real-time pressure, which is why structured mock practice still matters.</p>
+                        <div class="mt-auto flex justify-between items-center font-label text-[10px] uppercase tracking-widest">
+                            <span class="text-brand-lime group-hover:underline cursor-pointer">Read More →</span>
+                            <span class="text-brand-muted border-l border-white/10 pl-4">U. PANDEY · NOV 6</span>
+                        </div>
+                    </article>
+
+                    <article class="bg-[#0a0a0a] border border-white/10 chiseled-edge p-8 hover:-translate-y-2 hover:border-brand-cobalt transition-all group flex flex-col">
+                        <span class="font-label text-[10px] uppercase tracking-widest text-brand-muted mb-4 block group-hover:text-brand-lime transition-colors">Industry Guide</span>
+                        <h3 class="font-bold text-2xl mb-4 leading-snug">Breaking Into Product Management: The Interview Loop No One Tells You About</h3>
+                        <p class="font-body text-brand-muted text-sm mb-4 flex-1">PM interviews at top companies are a gauntlet of four to six rounds: product sense, analytical, execution, behavioural, and a leadership screen. Most candidates prep for product sense and ignore execution — which is where 40% of rejections happen. This guide maps every round, suggests frameworks for each, and shares the "reverse brief" technique that wows interviewers in the product sense round every time.</p>
+                        <div class="mt-auto flex justify-between items-center font-label text-[10px] uppercase tracking-widest">
+                            <span class="text-brand-lime group-hover:underline cursor-pointer">Read More →</span>
+                            <span class="text-brand-muted border-l border-white/10 pl-4">A. RANJAN · NOV 10</span>
+                        </div>
+                    </article>
+
+                    <article class="bg-[#0a0a0a] border border-white/10 chiseled-edge p-8 hover:-translate-y-2 hover:border-brand-cobalt transition-all group flex flex-col">
+                        <span class="font-label text-[10px] uppercase tracking-widest text-brand-muted mb-4 block group-hover:text-brand-lime transition-colors">Cover Letters</span>
+                        <h3 class="font-bold text-2xl mb-4 leading-snug">The Cover Letter Is Not Dead — You're Just Writing It Wrong</h3>
+                        <p class="font-body text-brand-muted text-sm mb-4 flex-1">The classic "I am writing to express my interest in…" opener gets your email archived in under 3 seconds. Recruiters at fast-growing startups told us they read fewer than 15% of cover letters — but those 15% got near-100% callback rates. The differentiator? A lede that hooks within two sentences, specificity about the company's pain points, and a closing that doesn't beg. We include three full cover letter templates that got offers.</p>
+                        <div class="mt-auto flex justify-between items-center font-label text-[10px] uppercase tracking-widest">
+                            <span class="text-brand-lime group-hover:underline cursor-pointer">Read More →</span>
+                            <span class="text-brand-muted border-l border-white/10 pl-4">A. VAMOLA · NOV 14</span>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- ⑦ SECTION DIVIDER -->
+                <div class="section-divider animate-on-scroll stagger-5">
+                    <span class="font-label text-[10px] uppercase tracking-widest text-brand-muted whitespace-nowrap">QUICK READS</span>
+                </div>
+
+                <!-- ⑧ LIST-STYLE POSTS -->
+                <div class="animate-on-scroll stagger-5 border border-white/8 bg-brand-surface p-6 md:p-8 chiseled-edge">
+
+                    <div class="list-post group cursor-pointer">
+                        <div class="flex-1">
+                            <span class="font-label text-[10px] uppercase tracking-widest text-brand-muted mb-2 block">Negotiation · 4 min read</span>
+                            <h4 class="font-bold text-lg leading-snug mb-1 group-hover:text-brand-lime transition-colors">Counter-Offer Scripts That Don't Sound Desperate</h4>
+                            <p class="font-body text-brand-muted text-sm">Three word-for-word email scripts when you have a competing offer, when you don't, and when the deadline is artificial.</p>
+                        </div>
+                        <div class="text-right shrink-0">
+                            <p class="font-mono text-[10px] text-brand-muted">Z. AHMED</p>
+                            <p class="font-mono text-[10px] text-brand-muted">NOV 20</p>
+                        </div>
+                    </div>
+
+                    <div class="list-post group cursor-pointer">
+                        <div class="flex-1">
+                            <span class="font-label text-[10px] uppercase tracking-widest text-brand-muted mb-2 block">Interview Tips · 5 min read</span>
+                            <h4 class="font-bold text-lg leading-snug mb-1 group-hover:text-brand-lime transition-colors">How to Answer 'What's Your Weakness?' Without Cringing</h4>
+                            <p class="font-body text-brand-muted text-sm">The "I work too hard" answer is a red flag now. Here's the anatomy of an honest, strategic weakness answer that builds trust instead of breaking it.</p>
+                        </div>
+                        <div class="text-right shrink-0">
+                            <p class="font-mono text-[10px] text-brand-muted">K. GARG</p>
+                            <p class="font-mono text-[10px] text-brand-muted">NOV 17</p>
+                        </div>
+                    </div>
+
+                    <div class="list-post group cursor-pointer">
+                        <div class="flex-1">
+                            <span class="font-label text-[10px] uppercase tracking-widest text-brand-muted mb-2 block">AI Tools · 3 min read</span>
+                            <h4 class="font-bold text-lg leading-snug mb-1 group-hover:text-brand-lime transition-colors">LinkedIn Profile Optimization: What the Algorithm Actually Rewards</h4>
+                            <p class="font-body text-brand-muted text-sm">Keyword density in the headline, connection-to-content ratio, and the 'Open to Work' banner — what actually improves your recruiter discovery rate.</p>
+                        </div>
+                        <div class="text-right shrink-0">
+                            <p class="font-mono text-[10px] text-brand-muted">V. RAJ</p>
+                            <p class="font-mono text-[10px] text-brand-muted">NOV 13</p>
+                        </div>
+                    </div>
+
+                    <div class="list-post group cursor-pointer">
+                        <div class="flex-1">
+                            <span class="font-label text-[10px] uppercase tracking-widest text-brand-muted mb-2 block">Psychology · 6 min read</span>
+                            <h4 class="font-bold text-lg leading-snug mb-1 group-hover:text-brand-lime transition-colors">The Rejection Loop: Why You're Getting Interviews But No Offers</h4>
+                            <p class="font-body text-brand-muted text-sm">Getting to the final round repeatedly but not closing? It's almost always one of three specific failure patterns. This article diagnoses which one you're in and how to break out.</p>
+                        </div>
+                        <div class="text-right shrink-0">
+                            <p class="font-mono text-[10px] text-brand-muted">A. RANJAN</p>
+                            <p class="font-mono text-[10px] text-brand-muted">NOV 9</p>
+                        </div>
+                    </div>
+
+                    <div class="list-post group cursor-pointer">
+                        <div class="flex-1">
+                            <span class="font-label text-[10px] uppercase tracking-widest text-brand-muted mb-2 block">Resume · 4 min read</span>
+                            <h4 class="font-bold text-lg leading-snug mb-1 group-hover:text-brand-lime transition-colors">Quantify or Die: Turning Vague Bullets Into Impact Statements</h4>
+                            <p class="font-body text-brand-muted text-sm">"Helped improve team performance" vs. "Reduced code review turnaround by 40% over Q2." Learn the formula for reverse-engineering numbers from memory — even when you don't have exact data.</p>
+                        </div>
+                        <div class="text-right shrink-0">
+                            <p class="font-mono text-[10px] text-brand-muted">U. PANDEY</p>
+                            <p class="font-mono text-[10px] text-brand-muted">NOV 5</p>
+                        </div>
+                    </div>
+
+                    <div class="list-post group cursor-pointer" style="border-bottom:none; padding-bottom:0;">
+                        <div class="flex-1">
+                            <span class="font-label text-[10px] uppercase tracking-widest text-brand-muted mb-2 block">Industry Guide · 7 min read</span>
+                            <h4 class="font-bold text-lg leading-snug mb-1 group-hover:text-brand-lime transition-colors">Consulting Interviews 101: Case Frameworks for Non-MBAs</h4>
+                            <p class="font-body text-brand-muted text-sm">BCG, Deloitte, McKinsey. The case interview is a skill that can be learned in 3 weeks with the right approach. We cover MECE thinking, hypothesis-first analysis, and the clarifying questions that signal intelligence to interviewers.</p>
+                        </div>
+                        <div class="text-right shrink-0">
+                            <p class="font-mono text-[10px] text-brand-muted">A. VAMOLA</p>
+                            <p class="font-mono text-[10px] text-brand-muted">NOV 1</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ⑨ SECOND FEATURED — Wide -->
+                <article class="bg-brand-surface border border-brand-lime/20 chiseled-edge p-8 md:p-12 hover:border-brand-lime/50 transition-colors animate-on-scroll stagger-5 group">
+                    <div class="mb-6 flex items-center justify-between font-label text-[10px] uppercase tracking-widest">
+                        <span class="badge-cobalt">Deep Dive · FAANG</span>
+                        <span class="text-brand-muted">14 MIN READ</span>
+                    </div>
+                    <h2 class="font-headline text-4xl md:text-5xl mb-4 leading-tight group-hover:text-brand-lime transition-colors">Inside the Google SWE Interview: What Changed in 2025 and How to Adapt</h2>
+                    <p class="font-body text-brand-muted text-lg leading-relaxed mb-4 max-w-2xl">Google revamped its hiring process in early 2025 — fewer rounds, heavier weighting on Googleyness, and a renewed emphasis on system design even at L3. We spoke to 12 successful hires and three current Googlers to map exactly what changed, what stayed the same, and what candidates are still getting wrong.</p>
+                    <p class="font-body text-brand-muted text-base leading-relaxed mb-8 max-w-2xl">Key findings: the LeetCode bar dropped from hard-hard to medium-hard, but the quality of walk-through explanation jumped dramatically in importance. Interviewers are now looking for engineers who can teach, not just solve. We show you how to train for this shift.</p>
+                    <div class="flex items-center justify-between flex-wrap gap-4">
+                        <a href="#" class="font-label text-sm uppercase text-brand-lime font-bold tracking-widest hover:underline flex items-center gap-2">Read the Deep Dive →</a>
+                        <span class="font-mono text-[10px] text-brand-muted">A. RANJAN · NOV 22</span>
+                    </div>
+                </article>
+
+                <!-- ⑩ CARD GRID 3 — Final batch -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 animate-on-scroll stagger-5">
+
+                    <article class="bg-[#0a0a0a] border border-white/10 chiseled-edge p-8 hover:-translate-y-2 hover:border-brand-cobalt transition-all group flex flex-col">
+                        <span class="font-label text-[10px] uppercase tracking-widest text-brand-muted mb-4 block group-hover:text-brand-lime transition-colors">Anxiety</span>
+                        <h3 class="font-bold text-2xl mb-4 leading-snug">First-Round Phone Screen Survival Guide</h3>
+                        <p class="font-body text-brand-muted text-sm mb-4 flex-1">Phone screens feel low-stakes until you realize 70% of candidates are eliminated here. The recruiter is checking three things in under 20 minutes: communication clarity, basic role fit, and whether you've done your homework. We cover the six questions asked in 90% of phone screens, how to answer each without over-explaining, and the one question you should always ask at the end that signals seriousness to any recruiter.</p>
+                        <div class="mt-auto flex justify-between items-center font-label text-[10px] uppercase tracking-widest">
+                            <span class="text-brand-lime group-hover:underline cursor-pointer">Read More →</span>
+                            <span class="text-brand-muted border-l border-white/10 pl-4">Z. AHMED · NOV 25</span>
+                        </div>
+                    </article>
+
+                    <article class="bg-[#0a0a0a] border border-white/10 chiseled-edge p-8 hover:-translate-y-2 hover:border-brand-cobalt transition-all group flex flex-col">
+                        <span class="font-label text-[10px] uppercase tracking-widest text-brand-muted mb-4 block group-hover:text-brand-lime transition-colors">Resume</span>
+                        <h3 class="font-bold text-2xl mb-4 leading-snug">The One-Page Rule Is a Myth (Here's When to Break It)</h3>
+                        <p class="font-body text-brand-muted text-sm mb-4 flex-1">Senior engineers with 8+ years of experience are actively hurting themselves by cramming everything into one page. We analyzed 2,000 resumes that received callbacks and found that two-page resumes outperformed one-pagers at the 6-year+ mark in every technical role we studied. Learn the page-break rule, what to cut and what to keep, and how to format the second page so it gets read, not discarded.</p>
+                        <div class="mt-auto flex justify-between items-center font-label text-[10px] uppercase tracking-widest">
+                            <span class="text-brand-lime group-hover:underline cursor-pointer">Read More →</span>
+                            <span class="text-brand-muted border-l border-white/10 pl-4">K. GARG · NOV 28</span>
+                        </div>
+                    </article>
+
+                    <article class="bg-[#0a0a0a] border border-white/10 chiseled-edge p-8 hover:-translate-y-2 hover:border-brand-cobalt transition-all group flex flex-col">
+                        <span class="font-label text-[10px] uppercase tracking-widest text-brand-muted mb-4 block group-hover:text-brand-lime transition-colors">Interview Tips</span>
+                        <h3 class="font-bold text-2xl mb-4 leading-snug">Questions You Must Ask the Interviewer (and What Each One Signals)</h3>
+                        <p class="font-body text-brand-muted text-sm mb-4 flex-1">The "Do you have any questions for us?" moment is your chance to demonstrate strategic thinking. Weak candidates ask about perks. Strong candidates ask about team dynamics, technical debt, and product roadmap. We give you 10 battle-tested questions ranked by the signal they send to the interviewer — and the two types of questions you should never ask under any circumstances.</p>
+                        <div class="mt-auto flex justify-between items-center font-label text-[10px] uppercase tracking-widest">
+                            <span class="text-brand-lime group-hover:underline cursor-pointer">Read More →</span>
+                            <span class="text-brand-muted border-l border-white/10 pl-4">V. RAJ · DEC 2</span>
+                        </div>
+                    </article>
+
+                    <article class="bg-[#0a0a0a] border border-white/10 chiseled-edge p-8 hover:-translate-y-2 hover:border-brand-cobalt transition-all group flex flex-col">
+                        <span class="font-label text-[10px] uppercase tracking-widest text-brand-muted mb-4 block group-hover:text-brand-lime transition-colors">Industry Guide</span>
+                        <h3 class="font-bold text-2xl mb-4 leading-snug">Startup vs MNC: Which Interview Track Should You Actually Optimise For?</h3>
+                        <p class="font-body text-brand-muted text-sm mb-4 flex-1">The skills, mindset, and even the dress code that gets you hired at a Series B startup will get you rejected at an established bank — and vice versa. This guide maps the critical differences in interview culture, evaluation criteria, and decision-making speed across four categories: pre-seed startups, growth-stage companies, mid-size product firms, and large MNCs. Know your arena before you enter it.</p>
+                        <div class="mt-auto flex justify-between items-center font-label text-[10px] uppercase tracking-widest">
+                            <span class="text-brand-lime group-hover:underline cursor-pointer">Read More →</span>
+                            <span class="text-brand-muted border-l border-white/10 pl-4">U. PANDEY · DEC 5</span>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- ⑪ LOAD MORE -->
+                <div class="text-center animate-on-scroll stagger-5 pt-4">
+                    <button class="border border-white/20 text-brand-muted hover:border-brand-cobalt hover:text-white font-label text-xs uppercase tracking-widest px-10 py-4 transition-all chiseled-sm">Load More Articles</button>
+                </div>
+
+            </div>
+
+            <!-- ── RIGHT SIDEBAR ── -->
+            <aside class="lg:col-span-1 space-y-10 shrink-0 lg:sticky lg:top-32 animate-on-scroll stagger-3">
+
+                <!-- Newsletter -->
+                <div class="border border-brand-cobalt bg-brand-surface p-7 chiseled-edge">
+                    <span class="material-symbols-outlined text-4xl text-brand-cobalt mb-3 block">mail</span>
+                    <h4 class="font-headline text-2xl mb-2">WEEKLY DROP</h4>
+                    <p class="font-body text-brand-muted text-sm mb-5 leading-relaxed">No fluff. Just hard data and scripts on what's working in interviews right now. 12,400 subscribers.</p>
+                    <div class="space-y-3">
+                        <input type="email" placeholder="email@address.xyz" class="w-full bg-[#0a0a0a] border border-white/10 p-4 font-body text-sm outline-none focus:border-brand-cobalt text-white">
+                        <button class="w-full bg-brand-lime text-black font-label text-xs uppercase font-bold py-4 hover:brightness-110 active:translate-y-[-2px] transition-all chiseled-sm">Lock It In →</button>
+                    </div>
+                </div>
+
+                <!-- Top Posts -->
+                <div>
+                    <h4 class="font-label text-[10px] tracking-widest uppercase text-brand-muted mb-5 border-b border-white/10 pb-2">Most Read This Week</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 group cursor-pointer">
+                            <span class="font-headline text-3xl text-white/10 group-hover:text-brand-cobalt transition-colors leading-none pt-1">01</span>
+                            <p class="font-body text-sm text-brand-muted group-hover:text-white transition-colors leading-snug">The STAR Method: Your Cheat Code for Behavioural Rounds</p>
+                        </div>
+                        <div class="flex items-start gap-4 group cursor-pointer">
+                            <span class="font-headline text-3xl text-white/10 group-hover:text-brand-cobalt transition-colors leading-none pt-1">02</span>
+                            <p class="font-body text-sm text-brand-muted group-hover:text-white transition-colors leading-snug">ATS 101: Why Your Resume Gets Ghosted</p>
+                        </div>
+                        <div class="flex items-start gap-4 group cursor-pointer">
+                            <span class="font-headline text-3xl text-white/10 group-hover:text-brand-cobalt transition-colors leading-none pt-1">03</span>
+                            <p class="font-body text-sm text-brand-muted group-hover:text-white transition-colors leading-snug">Inside the Google SWE Interview: What Changed in 2025</p>
+                        </div>
+                        <div class="flex items-start gap-4 group cursor-pointer">
+                            <span class="font-headline text-3xl text-white/10 group-hover:text-brand-cobalt transition-colors leading-none pt-1">04</span>
+                            <p class="font-body text-sm text-brand-muted group-hover:text-white transition-colors leading-snug">The Silence Strategy: How Saying Nothing Earns You More</p>
+                        </div>
+                        <div class="flex items-start gap-4 group cursor-pointer">
+                            <span class="font-headline text-3xl text-white/10 group-hover:text-brand-cobalt transition-colors leading-none pt-1">05</span>
+                            <p class="font-body text-sm text-brand-muted group-hover:text-white transition-colors leading-snug">Cracking System Design at FAANG in 45 Minutes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Authors -->
+                <div>
+                    <h4 class="font-label text-[10px] tracking-widest uppercase text-brand-muted mb-5 border-b border-white/10 pb-2">Contributors</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="font-body text-sm text-white">A. Vamola</span>
+                            <span class="pill">Cover Letters</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-body text-sm text-white">Z. Ahmed</span>
+                            <span class="pill">Negotiation</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-body text-sm text-white">K. Garg</span>
+                            <span class="pill">Resume</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-body text-sm text-white">A. Yadav</span>
+                            <span class="pill">Frameworks</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-body text-sm text-white">A. Ranjan</span>
+                            <span class="pill">FAANG</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-body text-sm text-white">V. Raj</span>
+                            <span class="pill">System Design</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-body text-sm text-white">U. Pandey</span>
+                            <span class="pill">AI Tools</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tag Cloud -->
+                <div>
+                    <h4 class="font-label text-[10px] tracking-widest uppercase text-brand-muted mb-5 border-b border-white/10 pb-2">Explore Modules</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-white/5 border border-white/10 hover:bg-brand-cobalt cursor-pointer text-xs font-label uppercase px-3 py-1 text-brand-muted hover:text-white transition-colors">SWE Roles</span>
+                        <span class="bg-white/5 border border-white/10 hover:bg-brand-cobalt cursor-pointer text-xs font-label uppercase px-3 py-1 text-brand-muted hover:text-white transition-colors">FAANG</span>
+                        <span class="bg-white/5 border border-white/10 hover:bg-brand-cobalt cursor-pointer text-xs font-label uppercase px-3 py-1 text-brand-muted hover:text-white transition-colors">Cover Letters</span>
+                        <span class="bg-white/5 border border-white/10 hover:bg-brand-cobalt cursor-pointer text-xs font-label uppercase px-3 py-1 text-brand-muted hover:text-white transition-colors">System Design</span>
+                        <span class="bg-white/5 border border-white/10 hover:bg-brand-cobalt cursor-pointer text-xs font-label uppercase px-3 py-1 text-brand-muted hover:text-white transition-colors">Mental Health</span>
+                        <span class="bg-white/5 border border-white/10 hover:bg-brand-cobalt cursor-pointer text-xs font-label uppercase px-3 py-1 text-brand-muted hover:text-white transition-colors">PM Roles</span>
+                        <span class="bg-white/5 border border-white/10 hover:bg-brand-cobalt cursor-pointer text-xs font-label uppercase px-3 py-1 text-brand-muted hover:text-white transition-colors">Consulting</span>
+                        <span class="bg-white/5 border border-white/10 hover:bg-brand-cobalt cursor-pointer text-xs font-label uppercase px-3 py-1 text-brand-muted hover:text-white transition-colors">AI Prep</span>
+                        <span class="bg-white/5 border border-white/10 hover:bg-brand-cobalt cursor-pointer text-xs font-label uppercase px-3 py-1 text-brand-muted hover:text-white transition-colors">Startups</span>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Footer strip -->
+    <footer class="border-t border-white/5 mt-16">
+        <div class="max-w-7xl mx-auto px-6 py-8 flex flex-wrap items-center justify-between gap-4">
+            <span class="font-headline text-lg tracking-widest text-brand-cobalt">INTERVIEW<span class="text-white">MAXXING</span></span>
+            <p class="font-label text-[10px] uppercase tracking-widest text-brand-muted">© 2026 · All guides by InterviewMaxxing contributors</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.08 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        // Filter tabs
+        document.querySelectorAll('.flex.overflow-x-auto button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.flex.overflow-x-auto button').forEach(b => {
+                    b.classList.remove('bg-brand-cobalt', 'text-white');
+                    b.classList.add('border', 'border-white/10', 'text-brand-muted');
+                });
+                btn.classList.remove('border', 'border-white/10', 'text-brand-muted');
+                btn.classList.add('bg-brand-cobalt', 'text-white');
+            });
+        });
+
+        // Handle blog links
+        document.querySelectorAll('article, .list-post, a[href="#"], .group.cursor-pointer').forEach(el => {
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.location.href = 'blog-post.html';
+            });
+        });
+    </script>
+</body>
+</html>

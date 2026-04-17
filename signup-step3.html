@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | INTERVIEWMAXXING</title>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#050505] text-[#FAFAFA] font-body selection:bg-brand-lime selection:text-black min-h-screen relative">
+    <div class="fixed inset-0 grid-overlay-global pointer-events-none z-0"></div>
+
+    <!-- Header Navigation Shell -->
+    <header class="sticky top-0 z-50 bg-[#050505] border-b border-white/10 flex justify-between items-center px-6 py-4 w-full">
+        <a href="signup-step2.html" class="flex gap-4 items-center group decoration-none">
+            <span class="material-symbols-outlined text-brand-muted group-hover:text-brand-lime transition-colors">arrow_back</span>
+            <span class="text-2xl font-bold tracking-tighter text-[#FAFAFA] font-headline">INTERVIEWMAXXING</span>
+        </a>
+        <div class="flex items-center gap-2">
+            <span class="font-label text-[10px] text-brand-muted">STEP 03/03</span>
+            <div class="w-24 h-1 bg-[#1A1A1A] relative overflow-hidden">
+                <div class="absolute inset-0 bg-brand-cobalt w-full"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10 max-w-5xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            <!-- Left Column: Checkout Form -->
+            <div class="lg:col-span-7 flex flex-col gap-10">
+                <div class="space-y-2">
+                    <span class="font-label text-[11px] text-brand-cobalt tracking-[0.2em]">FINAL_VERIFICATION</span>
+                    <h1 class="font-headline text-[48px] leading-none uppercase tracking-tight">YOU'RE ALMOST LOCKED IN.</h1>
+                </div>
+                
+                <form class="space-y-8" id="checkout-form" novalidate>
+                    <button class="w-full flex items-center justify-center gap-3 py-4 border border-white/10 hover:bg-white/5 transition-colors font-label text-sm uppercase tracking-wider group bg-[#0a0a0a]" type="button">
+                        <svg class="w-5 h-5 group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="currentColor"></path>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="currentColor"></path>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="currentColor"></path>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="currentColor"></path>
+                        </svg>
+                        Continue with Google
+                    </button>
+                    
+                    <div class="flex items-center gap-4">
+                        <div class="h-px flex-1 bg-white/10"></div>
+                        <span class="font-label text-[10px] text-brand-muted">SECURE PORTAL</span>
+                        <div class="h-px flex-1 bg-white/10"></div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative" id="payment-fields">
+                        <!-- If free plan selected, this section is hidden or disabled visually -->
+                        <div class="space-y-2 md:col-span-2">
+                            <label class="font-label text-[10px] text-brand-muted uppercase tracking-widest">Email Address</label>
+                            <input id="checkout-email" class="w-full bg-[#1A1A1A] border border-white/10 px-4 py-4 focus:ring-0 focus:border-brand-cobalt transition-colors font-body placeholder:text-white/20 outline-none" placeholder="p.bateman@pierce-pierce.com" type="email" required/>
+                            <p class="text-red-500 font-label text-[10px] uppercase hidden" id="email-error">Invalid email format</p>
+                        </div>
+
+                        <div class="space-y-2 md:col-span-2">
+                            <label class="font-label text-[10px] text-brand-muted uppercase tracking-widest">Create Password</label>
+                            <input id="checkout-pass" class="w-full bg-[#1A1A1A] border border-white/10 px-4 py-4 focus:ring-0 focus:border-brand-cobalt transition-colors font-body outline-none" type="password" required/>
+                            <div class="w-full h-1 bg-white/10 flex gap-1 mt-1">
+                                <div id="pass-1" class="flex-1 transition-colors"></div>
+                                <div id="pass-2" class="flex-1 transition-colors"></div>
+                                <div id="pass-3" class="flex-1 transition-colors"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-2 md:col-span-2 relative card-input-group">
+                            <label class="font-label text-[10px] text-brand-muted uppercase tracking-widest">Card Number</label>
+                            <input id="checkout-card" class="w-full bg-[#1A1A1A] border border-white/10 px-4 py-4 focus:ring-0 focus:border-brand-cobalt transition-colors font-label placeholder:text-white/20 outline-none tracking-widest" placeholder="0000 0000 0000 0000" type="text" maxlength="19"/>
+                            <div class="absolute right-4 bottom-4 flex gap-2">
+                                <span class="material-symbols-outlined text-brand-muted text-xl card-icon">credit_card</span>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-2 card-input-group">
+                            <label class="font-label text-[10px] text-brand-muted uppercase tracking-widest">Expiry</label>
+                            <input id="checkout-exp" class="w-full bg-[#1A1A1A] border border-white/10 px-4 py-4 focus:ring-0 focus:border-brand-cobalt transition-colors font-label placeholder:text-white/20 outline-none tracking-widest" placeholder="MM / YY" type="text" maxlength="7"/>
+                        </div>
+                        
+                        <div class="space-y-2 card-input-group">
+                            <label class="font-label text-[10px] text-brand-muted uppercase tracking-widest">CVV</label>
+                            <input id="checkout-cvv" class="w-full bg-[#1A1A1A] border border-white/10 px-4 py-4 focus:ring-0 focus:border-brand-cobalt transition-colors font-label placeholder:text-white/20 outline-none tracking-widest" placeholder="123" type="password" maxlength="4"/>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6 pt-4">
+                        <label class="flex items-center gap-3 cursor-pointer">
+                            <input type="checkbox" id="tos-agree" class="w-5 h-5 bg-[#1a1a1a] border border-white/20 text-brand-cobalt focus:ring-brand-cobalt rounded-none" required>
+                            <span class="font-body text-xs text-brand-muted uppercase tracking-wider">I agree to the Terms of Service & Privacy Policy.</span>
+                        </label>
+
+                        <button id="submit-btn" class="w-full h-[56px] bg-brand-lime text-black font-headline text-[22px] uppercase tracking-wider flex items-center justify-center hover:brightness-110 active:scale-[0.98] transition-all cta-shimmer shadow-[4px_4px_0_#3B5BDB] relative">
+                            <span id="btn-text">START MAXXING →</span>
+                            <span id="btn-load" class="hidden material-symbols-outlined animate-spin absolute right-4">refresh</span>
+                        </button>
+                        
+                        <!-- Security Badges -->
+                        <div class="flex flex-wrap justify-center gap-6 font-label text-[10px] text-brand-muted uppercase tracking-widest">
+                            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">lock</span> 256-bit SSL</span>
+                            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">credit_card</span> PCI</span>
+                            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">assignment_return</span> 7-day refund</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Right Column: Summary & Guarantee -->
+            <div class="lg:col-span-5 flex flex-col gap-6">
+                <!-- Order Summary Panel -->
+                <div class="bg-brand-surface border border-brand-cobalt/30 relative overflow-hidden flex flex-col pt-0">
+                    <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-brand-cobalt"></div>
+                    <div class="p-8 space-y-8 flex-1">
+                        <div>
+                            <span class="font-label text-[10px] text-brand-cobalt uppercase tracking-[0.2em] mb-2 block">SELECTED_TIER</span>
+                            <h2 class="font-headline text-[28px] uppercase leading-none"><span id="summ-title">MAX PREP</span> <span class="text-brand-cobalt">PLAN</span></h2>
+                        </div>
+                        
+                        <!-- Customisation Pills -->
+                        <div class="flex flex-wrap gap-2 pt-2" id="summ-pills">
+                            <!-- Injected by JS -->
+                        </div>
+                        
+                        <!-- Pricing Breakdown -->
+                        <div class="pt-6 border-t border-white/5 space-y-3 font-label text-[11px] uppercase tracking-wider text-brand-muted">
+                            <div class="flex justify-between">
+                                <span>Base Plan</span>
+                                <span class="text-white" id="summ-base">$0.00</span>
+                            </div>
+                            <div class="flex justify-between text-brand-lime hidden" id="summ-discount-row">
+                                <span id="summ-discount-label">Discount</span>
+                                <span id="summ-discount-val">-$0.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>GST (18%)</span>
+                                <span class="text-white" id="summ-gst">$0.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Total Row -->
+                    <div class="bg-brand-cobalt px-8 py-5 flex justify-between items-center mt-auto">
+                        <span class="font-label text-xs tracking-widest text-brand-lime font-bold uppercase">TOTAL</span>
+                        <div class="flex items-baseline gap-1">
+                            <span class="font-label text-sm text-white/80">₹</span>
+                            <span class="font-headline text-[32px] text-white leading-none" id="summ-total">0.00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Guarantee Block -->
+                <div class="bg-[#1A1A1A] border-l-[3px] border-brand-lime p-6 relative group overflow-hidden">
+                    <div class="absolute inset-0 bg-[rgba(170,255,0,0.03)] pointer-events-none"></div>
+                    <div class="relative z-10 flex flex-col gap-2">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-brand-lime text-lg" style="font-variation-settings: 'FILL' 1;">verified</span>
+                            <span class="font-label text-[10px] text-brand-cobalt uppercase font-bold tracking-widest">7-DAY MAXXER GUARANTEE</span>
+                        </div>
+                        <p class="font-body text-xs text-brand-muted leading-relaxed uppercase tracking-wider">
+                            Not feeling the performance gains? Cancel within 7 days, no hurdles or explanations required.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/layout.js"></script>
+    <script src="js/signup.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const state = window.SignupStore.getState();
+            const planData = window.SignupStore.PLANS[state.plan || 'starter'];
+            
+            // Populate Summary
+            document.getElementById('summ-title').innerText = planData.name;
+            
+            const pillsWrap = document.getElementById('summ-pills');
+            const pillsHTML = [];
+            if(state.role) pillsHTML.push(`<span class="px-3 py-1 bg-brand-cobalt/10 border border-brand-cobalt/30 font-label text-[9px] text-brand-cobalt uppercase tracking-widest">${state.role}</span>`);
+            if(state.challenge) pillsHTML.push(`<span class="px-3 py-1 bg-white/5 border border-white/10 font-label text-[9px] text-brand-muted uppercase tracking-widest">${state.challenge}</span>`);
+            pillsWrap.innerHTML = pillsHTML.join('');
+            
+            const cost = state.billing === 'annual' ? planData.costAnnual : planData.costMonthly;
+            const isFree = cost === 0;
+            
+            const gst = cost * 0.18;
+            const total = cost + gst;
+            
+            document.getElementById('summ-base').innerText = `₹${cost.toFixed(2)}`;
+            document.getElementById('summ-gst').innerText = `₹${gst.toFixed(2)}`;
+            document.getElementById('summ-total').innerText = total.toFixed(2);
+            
+            // Free Tier Form adjustment
+            if(isFree) {
+                document.querySelectorAll('.card-input-group').forEach(el => {
+                    el.style.opacity = '0.3';
+                    const inp = el.querySelector('input');
+                    if(inp) inp.disabled = true;
+                });
+            }
+
+            // Validations & Live Format
+            const emailInp = document.getElementById('checkout-email');
+            const emailErr = document.getElementById('email-error');
+            const passInp = document.getElementById('checkout-pass');
+            const p1 = document.getElementById('pass-1');
+            const p2 = document.getElementById('pass-2');
+            const p3 = document.getElementById('pass-3');
+            const cardInp = document.getElementById('checkout-card');
+            const expInp = document.getElementById('checkout-exp');
+            const form = document.getElementById('checkout-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const btnText = document.getElementById('btn-text');
+            const btnLoad = document.getElementById('btn-load');
+            
+            emailInp.addEventListener('input', () => {
+                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if(emailInp.value.length > 0 && !regex.test(emailInp.value)) {
+                    emailInp.classList.add('border-red-500');
+                    emailErr.classList.remove('hidden');
+                } else {
+                    emailInp.classList.remove('border-red-500');
+                    emailErr.classList.add('hidden');
+                }
+            });
+
+            passInp.addEventListener('input', () => {
+                const val = passInp.value;
+                p1.className = 'flex-1 transition-colors ' + (val.length > 0 ? 'bg-red-500' : 'bg-white/10');
+                p2.className = 'flex-1 transition-colors ' + (val.length > 5 ? 'bg-yellow-500' : 'bg-white/10');
+                p3.className = 'flex-1 transition-colors ' + (val.length > 10 ? 'bg-brand-lime' : 'bg-white/10');
+            });
+            
+            if(!isFree) {
+                cardInp.addEventListener('input', (e) => {
+                    let v = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+                    let matches = v.match(/\d{4,16}/g);
+                    let match = matches && matches[0] || '';
+                    let parts = [];
+                    for (let i=0, len=match.length; i<len; i+=4) {
+                        parts.push(match.substring(i, i+4))
+                    }
+                    if (parts.length) {
+                        e.target.value = parts.join(' ')
+                    } else {
+                        e.target.value = v;
+                    }
+                });
+
+                expInp.addEventListener('input', (e) => {
+                    let v = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+                    if (v.length >= 2) {
+                        e.target.value = v.substring(0, 2) + ' / ' + v.substring(2, 4);
+                    } else {
+                        e.target.value = v;
+                    }
+                });
+            }
+
+            // Form submission
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Super basic validation pass check
+                if(!document.getElementById('tos-agree').checked) return alert("Must agree to TOS.");
+                if(emailErr.classList.contains('hidden') === false) return;
+                
+                // Loading State
+                btnText.innerText = 'PROCESSING...';
+                submitBtn.classList.replace('bg-brand-lime', 'bg-brand-cobalt');
+                submitBtn.classList.replace('text-black', 'text-white');
+                submitBtn.classList.remove('shadow-[4px_4px_0_#3B5BDB]');
+                btnLoad.classList.remove('hidden');
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    window.location.href = 'signup-success.html';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>

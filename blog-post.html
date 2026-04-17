@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterviewMaxxing | Blog Post</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        headline: ['Bebas Neue', 'sans-serif'],
+                        body: ['DM Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                        label: ['DM Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            cobalt: '#2563EB',
+                            lime: '#A3E635',
+                            surface: '#0d0d0d',
+                            muted: '#6B7280',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .chiseled-edge {
+            clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+        }
+        .chiseled-sm {
+            clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+        }
+    </style>
+</head>
+<body class="bg-[#050505] text-[#FAFAFA] font-body">
+
+    <!-- Nav hint bar -->
+    <div class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-[#050505]/90 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="font-headline text-xl tracking-widest text-brand-cobalt">INTERVIEW<span class="text-white">MAXXING</span></a>
+            <a href="blog.html" class="font-label text-[10px] uppercase tracking-widest text-brand-muted hover:text-brand-lime transition-colors">← Back to Blog</a>
+        </div>
+    </div>
+
+    <main class="relative pt-32 pb-24 px-6 max-w-4xl mx-auto">
+        <article class="bg-brand-surface border border-brand-cobalt chiseled-edge p-8 md:p-16">
+            <div class="mb-8 flex items-center gap-4 font-label text-[10px] uppercase tracking-widest text-brand-muted">
+                <span class="text-brand-lime bg-brand-lime/10 px-2 py-1 border border-brand-lime/20">Interview Tips</span>
+                <span>8 MIN READ</span>
+                <span>A. YADAV · OCT 28</span>
+            </div>
+            
+            <h1 class="font-headline text-5xl md:text-7xl mb-8 leading-tight">How to Answer 'Tell Me About Yourself' Without Fumbling</h1>
+            
+            <div class="font-body text-brand-muted text-lg space-y-8 leading-relaxed">
+                <p>The most common interview opening is also where 60% of candidates lose their audience. Learn the inverted pyramid structure to nail the first 90 seconds perfectly every time — and leave the interviewer wanting more, not checking their calendar.</p>
+                
+                <h3 class="font-headline text-3xl text-white mt-12 mb-4">The Problem: Rambling</h3>
+                <p>Most candidates treat this question as an invitation to read their resume chronologically. They start from their university degree 8 years ago and slowly trudge towards the present day. By the time they hit minute three, the hiring manager has zoned out.</p>
+                
+                <h3 class="font-headline text-3xl text-white mt-12 mb-4">The Solution: The 3-Act Structure</h3>
+                <p>We break down the three-act structure of a compelling self-introduction:</p>
+                
+                <ul class="list-disc pl-6 space-y-4">
+                    <li><strong class="text-white">Act I: The Anchor (Present)</strong> - Start with exactly who you are right now and your most relevant high-level metric. <em>"I'm currently a Senior SWE at Stripe, where over the last two years I've scaled the checkout API from 500 TPS to 2,000 TPS."</em></li>
+                    <li><strong class="text-white">Act II: The Arc (Past)</strong> - Give 2-3 sentences on the *theme* of your past experience, not a chronological list. <em>"My career has always been focused on high-availability systems. Before Stripe, I spent 3 years at a Series B startup completely rewriting their monolith into microservices."</em></li>
+                    <li><strong class="text-white">Act III: The Aim (Future)</strong> - Tie your arc directly to the company you are interviewing for. <em>"I'm here today because while I love scaling infrastructure, I want to do it in the renewable energy space, and your current transition to a decentralized grid model aligns perfectly with my background."</em></li>
+                </ul>
+                
+                <div class="bg-[#111] p-6 border-l-2 border-brand-cobalt my-8">
+                    <p class="font-mono text-sm text-brand-cobalt mb-2">// EXAMPLE SCRIPT</p>
+                    <p class="text-white italic">"I'm a product designer obsessed with reducing friction in healthcare. For the past 4 years at Meta, I've led the design system across 3 health-focused surfaces, improving task-completion rates by 22%. Before that, I cut my teeth at MedTech startups building dashboards for clinicians. I'm looking to take that expertise into a Series A environment where I can own the end-to-end patient journey from day one—which is exactly why I'm excited about this opportunity."</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 pt-8 border-t border-white/10 flex justify-between items-center">
+                <p class="font-label text-xs tracking-widest uppercase text-brand-muted">Share this guide</p>
+                <button class="bg-brand-lime text-black font-label text-xs uppercase px-6 py-3 font-bold hover:brightness-110 chiseled-sm">Copy Link 🔗</button>
+            </div>
+        </article>
+    </main>
+</body>
+</html>

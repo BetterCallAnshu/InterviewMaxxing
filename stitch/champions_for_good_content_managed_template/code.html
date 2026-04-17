@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>[EDIT_ME_LATER: SEO Title]</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#b3b4b4",
+                        "on-surface": "#ffd5ff",
+                        "inverse-primary": "#893da1",
+                        "primary-container": "#e894ff",
+                        "on-secondary-container": "#daa8dd",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#4c2652",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "surface-tint": "#f0b0ff",
+                        "outline-variant": "#4e4350",
+                        "surface-container-high": "#401a47",
+                        "outline": "#9b8c9b",
+                        "primary": "#f4bdff",
+                        "primary-fixed": "#fbd7ff",
+                        "error-container": "#93000a",
+                        "secondary-container": "#633a68",
+                        "on-background": "#ffd5ff",
+                        "inverse-surface": "#ffd5ff",
+                        "surface-bright": "#512a57",
+                        "on-primary-container": "#6d2186",
+                        "on-tertiary": "#2f3131",
+                        "secondary-fixed": "#ffd5ff",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary": "#47214d",
+                        "surface-container-lowest": "#1f0027",
+                        "on-primary": "#54006d",
+                        "surface-container-low": "#300a37",
+                        "surface": "#26022e",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-primary-fixed": "#330044",
+                        "on-primary-fixed-variant": "#6f2287",
+                        "surface-dim": "#26022e",
+                        "secondary": "#e9b5ec",
+                        "secondary-fixed-dim": "#e9b5ec",
+                        "background": "#26022e",
+                        "inverse-on-surface": "#47214d",
+                        "primary-fixed-dim": "#f0b0ff",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-tertiary-container": "#444646",
+                        "on-secondary-fixed-variant": "#603865",
+                        "on-surface-variant": "#d2c2d1",
+                        "on-secondary-fixed": "#300a37",
+                        "surface-variant": "#4c2652",
+                        "surface-container": "#340f3b",
+                        "tertiary": "#cfcfd0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #26022e; color: #ffd5ff; min-height: max(884px, 100dvh); }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+        .glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .placeholder-tag { color: #f4bdff; background: rgba(244, 189, 255, 0.1); border: 1px dashed #f4bdff; padding: 0 4px; border-radius: 4px; font-family: monospace; }
+    </style>
+</head>
+<body class="bg-background overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#26022e]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(31,0,39,0.15)]">
+<nav class="flex justify-between items-center px-8 py-4 w-full max-w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#f4bdff] text-2xl animate-pulse" style="font-variation-settings: 'FILL' 1;">[EDIT_ME_LATER: Navbar Icon Name]</span>
+<span class="text-2xl font-black tracking-tighter text-[#f4bdff] font-['Space_Grotesk'] uppercase">[EDIT_ME_LATER: Brand Name]</span>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-[#f4bdff] border-b-2 border-[#f4bdff] pb-1" href="#">[EDIT_ME_LATER: Nav Link 1]</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-[#f4bdff]/60 hover:text-[#f4bdff] transition-colors" href="#">[EDIT_ME_LATER: Nav Link 2]</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-[#f4bdff]/60 hover:text-[#f4bdff] transition-colors" href="#">[EDIT_ME_LATER: Nav Link 3]</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-[#f4bdff]/60 hover:text-[#f4bdff] transition-colors" href="#">[EDIT_ME_LATER: Nav Link 4]</a>
+</div>
+<button class="bg-primary-container text-on-primary-container font-['Space_Grotesk'] font-bold tracking-tighter uppercase px-6 py-2 rounded-full hover:scale-105 hover:bg-[#401a47] transition-all duration-300">
+                [EDIT_ME_LATER: Nav CTA Button Text]
+            </button>
+</nav>
+</header>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative px-8 py-20 min-h-[795px] flex flex-col justify-center overflow-hidden">
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-30 pointer-events-none">
+<div class="w-full h-full bg-gradient-to-l from-primary/20 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-8">
+<span class="inline-block py-1 px-3 bg-surface-container-high text-primary text-xs font-bold tracking-[0.2em] rounded-full uppercase">[EDIT_ME_LATER: Hero Badge Text]</span>
+<h1 class="text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter uppercase">
+                        [EDIT_ME_LATER: Hero Title Line 1] <br/>
+<span class="text-primary italic">[EDIT_ME_LATER: Hero Title Accent]</span> <br/>
+                        [EDIT_ME_LATER: Hero Title Line 2]
+                    </h1>
+<p class="text-lg text-on-surface-variant max-w-md">
+                        [EDIT_ME_LATER: Hero Subtitle Text]
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="px-8 py-4 bg-primary text-on-primary font-bold rounded-full hover:scale-105 transition-transform duration-300">[EDIT_ME_LATER: Hero Primary CTA]</button>
+<button class="px-8 py-4 bg-surface-container-high border border-outline/20 text-on-surface font-bold rounded-full hover:bg-surface-bright transition-colors">[EDIT_ME_LATER: Hero Secondary CTA]</button>
+</div>
+</div>
+<div class="relative">
+<div class="rounded-xl overflow-hidden aspect-[4/5] shadow-2xl bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Hero Image Alt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVLS2knJUg3BjTFU96qwGAOR_kzM1HaXT20qCj9pyLsJI2cg3Dz2MpqVQrSnjX_bh9EqiPHSRAN049QXLwGdozGORUTd1gy8eK-HyRj3fbIql1abdQ4jNLFemYwZ5zMdvpQVPxAT81dNMQSRhmsWMpvUnaMdhmCyVV6VtiJMiFy8nXFmE-1UxB7y2SPrvTBjMSyaR6SzWMp5Y6NidPid7CVdTMcdPoWRmEWYhuJz-p5T_dHNFtp91mtbGRd2AX6sZAP53Tdk-92uEr"/>
+</div>
+<div class="absolute -bottom-10 -left-10 w-48 h-48 bg-primary-container p-6 rounded-xl flex flex-col justify-end hidden md:flex">
+<span class="text-4xl font-black text-on-primary-container leading-none">[EDIT_ME_LATER: Hero Stat Number]</span>
+<p class="text-on-primary-container font-bold text-xs mt-2 uppercase tracking-widest">[EDIT_ME_LATER: Hero Stat Label]</p>
+</div>
+</div>
+</div>
+</section>
+<!-- No Boring Section (Bento) -->
+<section class="py-32 px-8 bg-surface-container-low rounded-xl mx-4">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-2xl">
+<h2 class="text-5xl font-bold tracking-tighter uppercase mb-4">[EDIT_ME_LATER: Feature Section Title]</h2>
+<p class="text-on-surface-variant text-lg">[EDIT_ME_LATER: Feature Section Description]</p>
+</div>
+<div class="text-primary font-black text-7xl opacity-20">[EDIT_ME_LATER: Feature Section Index]</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+<!-- Bento Box 1 -->
+<div class="md:col-span-8 bg-surface-container-high rounded-lg overflow-hidden relative group">
+<img class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="Bento Item 1 Image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYqQ9AcYVJlH4oMDaNCpKF2jWY7b7N6lfwmwoYkB3rbKF7_y5W1e_5YsmYFjF6yijf1Gk0Z7tES4PZPc3idNOto5JLRrS1HHzPakS9MGIvdQ5BAmOoOhIMHYzL1_5e0e7oszNLBTolCXcPrODF_6hWEhMAiiyN2uY6tep32dY43EyiT-B8_MRFPCUj4re6wUTdv_L2L6IamntYraaEM4osYre45jdzCKbVNNqMtmlrGmIFloAo9Ot0py7dIuVmTN-KPFoeUQliCjhp"/>
+<div class="absolute inset-0 p-12 flex flex-col justify-end bg-gradient-to-t from-background to-transparent">
+<h3 class="text-3xl font-bold mb-2">[EDIT_ME_LATER: Feature Item 1 Title]</h3>
+<p class="text-on-surface-variant max-w-sm">[EDIT_ME_LATER: Feature Item 1 Text]</p>
+</div>
+</div>
+<!-- Bento Box 2 -->
+<div class="md:col-span-4 bg-primary p-12 rounded-lg flex flex-col justify-between">
+<span class="material-symbols-outlined text-on-primary text-6xl" style="font-variation-settings: 'FILL' 1;">[EDIT_ME_LATER: Feature Item 2 Icon]</span>
+<div>
+<h3 class="text-3xl font-black text-on-primary leading-tight mb-4 uppercase">[EDIT_ME_LATER: Feature Item 2 Title]</h3>
+<p class="text-on-primary/80">[EDIT_ME_LATER: Feature Item 2 Text]</p>
+</div>
+</div>
+<!-- Bento Box 3 -->
+<div class="md:col-span-4 bg-surface-container-high rounded-lg overflow-hidden relative h-64 md:h-auto">
+<div class="p-8 h-full flex flex-col justify-center">
+<div class="text-5xl font-black text-primary mb-2">[EDIT_ME_LATER: Feature Item 3 Stat]</div>
+<p class="text-sm uppercase tracking-widest font-bold">[EDIT_ME_LATER: Feature Item 3 Label]</p>
+</div>
+</div>
+<!-- Bento Box 4 -->
+<div class="md:col-span-8 bg-surface-container-high rounded-lg overflow-hidden relative group">
+<img class="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700" data-alt="Bento Item 4 Image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAihYOIIokhMUB4qrMlFSLfBptFVggilJH3uTUeVCAL-r7k3ztmiK3WCd9YmQfUNYbmZX3k8h0ZnHxkfbdf9qXk8iecn8XbyNxSWuUiNS7E_soMSbsFqoW5-Aeo1Wrt758k8gTgiPnoyWQJOVqd97QIg9bLG1DPWBgCrUQy1HaLM4Fgo9jig6a-19bRPEfwpBqmRipI_Hwf3n88bRrpHIDhFV_zbnQEkbutkCimJW3uosn0H2pbL0DLTmA9jve86UqIOi_6Sr70LhlG"/>
+<div class="absolute inset-0 p-8 flex items-center">
+<h3 class="text-2xl font-bold uppercase tracking-tighter">[EDIT_ME_LATER: Feature Item 4 Title]</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Values Section -->
+<section class="py-32 px-8 overflow-hidden">
+<div class="max-w-7xl mx-auto mb-16">
+<h2 class="text-5xl font-bold tracking-tighter uppercase">[EDIT_ME_LATER: Values Title]</h2>
+</div>
+<div class="flex gap-8 overflow-x-auto no-scrollbar pb-12 snap-x">
+<!-- Value Card 1 -->
+<div class="min-w-[350px] md:min-w-[450px] bg-surface-container-low p-12 rounded-xl snap-center hover:bg-surface-container-high transition-colors">
+<span class="text-primary font-black text-5xl block mb-8">01</span>
+<h3 class="text-2xl font-bold mb-4 uppercase">[EDIT_ME_LATER: Value 1 Title]</h3>
+<p class="text-on-surface-variant leading-relaxed">[EDIT_ME_LATER: Value 1 Text]</p>
+</div>
+<!-- Value Card 2 -->
+<div class="min-w-[350px] md:min-w-[450px] bg-surface-container-low p-12 rounded-xl snap-center hover:bg-surface-container-high transition-colors">
+<span class="text-primary font-black text-5xl block mb-8">02</span>
+<h3 class="text-2xl font-bold mb-4 uppercase">[EDIT_ME_LATER: Value 2 Title]</h3>
+<p class="text-on-surface-variant leading-relaxed">[EDIT_ME_LATER: Value 2 Text]</p>
+</div>
+<!-- Value Card 3 -->
+<div class="min-w-[350px] md:min-w-[450px] bg-surface-container-low p-12 rounded-xl snap-center hover:bg-surface-container-high transition-colors">
+<span class="text-primary font-black text-5xl block mb-8">03</span>
+<h3 class="text-2xl font-bold mb-4 uppercase">[EDIT_ME_LATER: Value 3 Title]</h3>
+<p class="text-on-surface-variant leading-relaxed">[EDIT_ME_LATER: Value 3 Text]</p>
+</div>
+<!-- Value Card 4 -->
+<div class="min-w-[350px] md:min-w-[450px] bg-surface-container-low p-12 rounded-xl snap-center hover:bg-surface-container-high transition-colors">
+<span class="text-primary font-black text-5xl block mb-8">04</span>
+<h3 class="text-2xl font-bold mb-4 uppercase">[EDIT_ME_LATER: Value 4 Title]</h3>
+<p class="text-on-surface-variant leading-relaxed">[EDIT_ME_LATER: Value 4 Text]</p>
+</div>
+</div>
+</section>
+<!-- Memberships -->
+<section class="py-32 px-8 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto text-center mb-20">
+<h2 class="text-6xl font-black tracking-tighter uppercase mb-6">[EDIT_ME_LATER: Pricing Title]</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">[EDIT_ME_LATER: Pricing Subtitle]</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+<!-- Tier 1 -->
+<div class="bg-surface p-10 rounded-xl flex flex-col border border-outline/10">
+<h3 class="text-xl font-bold mb-1 uppercase">[EDIT_ME_LATER: Tier 1 Name]</h3>
+<div class="text-4xl font-black text-primary mb-8">[EDIT_ME_LATER: Tier 1 Price]<span class="text-sm font-normal text-on-surface-variant">/[EDIT_ME_LATER: Price Period]</span></div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> [EDIT_ME_LATER: Tier 1 Feature 1]</li>
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> [EDIT_ME_LATER: Tier 1 Feature 2]</li>
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> [EDIT_ME_LATER: Tier 1 Feature 3]</li>
+</ul>
+<button class="w-full py-4 bg-surface-container-high font-bold rounded-lg hover:bg-surface-bright transition-colors">[EDIT_ME_LATER: Tier 1 CTA]</button>
+</div>
+<!-- Tier 2 (Featured) -->
+<div class="bg-primary-container p-10 rounded-xl flex flex-col shadow-[0_0_100px_rgba(232,148,255,0.15)] relative scale-105 z-10">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-on-primary-container text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest">[EDIT_ME_LATER: Tier 2 Badge]</div>
+<h3 class="text-xl font-bold mb-1 uppercase text-on-primary-container">[EDIT_ME_LATER: Tier 2 Name]</h3>
+<div class="text-4xl font-black text-on-primary-container mb-8">[EDIT_ME_LATER: Tier 2 Price]<span class="text-sm font-normal opacity-60">/[EDIT_ME_LATER: Price Period]</span></div>
+<ul class="space-y-4 mb-10 flex-grow text-on-primary-container">
+<li class="flex items-center gap-3 text-sm font-medium"><span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span> [EDIT_ME_LATER: Tier 2 Feature 1]</li>
+<li class="flex items-center gap-3 text-sm font-medium"><span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span> [EDIT_ME_LATER: Tier 2 Feature 2]</li>
+<li class="flex items-center gap-3 text-sm font-medium"><span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span> [EDIT_ME_LATER: Tier 2 Feature 3]</li>
+<li class="flex items-center gap-3 text-sm font-medium"><span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span> [EDIT_ME_LATER: Tier 2 Feature 4]</li>
+</ul>
+<button class="w-full py-4 bg-on-primary-container text-primary-container font-bold rounded-lg hover:opacity-90 transition-opacity">[EDIT_ME_LATER: Tier 2 CTA]</button>
+</div>
+<!-- Tier 3 -->
+<div class="bg-surface p-10 rounded-xl flex flex-col border border-outline/10">
+<h3 class="text-xl font-bold mb-1 uppercase">[EDIT_ME_LATER: Tier 3 Name]</h3>
+<div class="text-4xl font-black text-primary mb-8">[EDIT_ME_LATER: Tier 3 Price]<span class="text-sm font-normal text-on-surface-variant">/[EDIT_ME_LATER: Price Period]</span></div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> [EDIT_ME_LATER: Tier 3 Feature 1]</li>
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> [EDIT_ME_LATER: Tier 3 Feature 2]</li>
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> [EDIT_ME_LATER: Tier 3 Feature 3]</li>
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> [EDIT_ME_LATER: Tier 3 Feature 4]</li>
+</ul>
+<button class="w-full py-4 bg-surface-container-high font-bold rounded-lg hover:bg-surface-bright transition-colors">[EDIT_ME_LATER: Tier 3 CTA]</button>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-32 px-8 overflow-hidden relative">
+<div class="max-w-7xl mx-auto flex flex-col items-center text-center">
+<div class="relative w-full max-w-4xl py-20 px-8 bg-surface-container-low rounded-xl">
+<span class="material-symbols-outlined text-primary text-6xl mb-6 opacity-40">format_quote</span>
+<h2 class="text-3xl md:text-5xl font-medium tracking-tight italic mb-10 leading-snug">
+                        "[EDIT_ME_LATER: Testimonial Quote]"
+                    </h2>
+<div class="flex flex-col items-center">
+<div class="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-primary">
+<img class="w-full h-full object-cover" data-alt="Testimonial Author Photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJK5bO8K0k56T1dXDrjOnpOqAdr5V0mqZZaYzzTxtiF3h09XFqiLycZtfVjIdmg-1S7AVmNs5_BPHJ-rk9K1dcwXCA8q2Z3Z7U0pAALdmUj-f_HJnWgChmlyxbG_Z11c_uYoONlLYWKxLDIgMNOi8Uk2dt-YZVZBfsixqaoaMyTYJyvQc36CIBbvq-0P7nkigGLAsYmrhzaMj5VIsJ7ifJGcihY27gL5ghb9AXctdRl2s3SWhUKkxO6aDyCHFw1OOD8WkvPPz90uMr"/>
+</div>
+<div class="font-bold text-lg uppercase tracking-widest">[EDIT_ME_LATER: Testimonial Author Name]</div>
+<div class="text-xs text-primary font-bold tracking-widest uppercase">[EDIT_ME_LATER: Testimonial Author Role]</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Migration Guide Section -->
+<section class="py-20 px-8 bg-[#1a0121] border-t border-primary/10">
+<div class="max-w-4xl mx-auto">
+<div class="flex items-center gap-4 mb-8">
+<span class="material-symbols-outlined text-primary text-3xl">settings_input_component</span>
+<h2 class="text-4xl font-bold tracking-tight uppercase">Migration Guide</h2>
+</div>
+<div class="bg-surface-container-low p-8 rounded-xl space-y-6">
+<p class="text-on-surface-variant">This template is now fully data-driven. To launch your site, follow these steps:</p>
+<div class="space-y-4">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm">1</div>
+<div>
+<h3 class="font-bold uppercase text-primary">Map Your Data</h3>
+<p class="text-sm text-on-surface-variant/80">Identify all <span class="placeholder-tag">[EDIT_ME_LATER]</span> placeholders in this HTML file.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm">2</div>
+<div>
+<h3 class="font-bold uppercase text-primary">Create contentData.json</h3>
+<p class="text-sm text-on-surface-variant/80">Structure your JSON following the sections (Hero, Bento, Values, Pricing, etc.) described in the code comments.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm">3</div>
+<div>
+<h3 class="font-bold uppercase text-primary">Inject Content</h3>
+<p class="text-sm text-on-surface-variant/80">Use a static site generator or a simple script to replace the bracketed placeholders with your actual JSON values.</p>
+</div>
+</div>
+</div>
+<div class="mt-8 p-4 bg-surface-container-highest rounded border border-outline/10 font-mono text-[10px] text-on-surface-variant overflow-x-auto">
+<pre>{
+  "hero": {
+    "title": "...",
+    "image": "https://...",
+    "cta": "..."
+  },
+  "bento": [...],
+  "pricing": [...]
+}</pre>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-t-[3rem] bg-[#1f0027] shadow-none">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full gap-12">
+<div class="flex flex-col gap-6 items-center md:items-start">
+<div class="font-['Space_Grotesk'] font-bold text-[#f4bdff] text-4xl tracking-tighter uppercase">[EDIT_ME_LATER: Footer Brand Name]</div>
+<p class="text-[#e894ff]/50 font-['Plus_Jakarta_Sans'] text-sm tracking-widest uppercase text-center md:text-left">
+                    © [EDIT_ME_LATER: Current Year] [EDIT_ME_LATER: Copyright Text].
+                </p>
+</div>
+<div class="flex flex-wrap justify-center gap-10">
+<a class="font-['Plus_Jakarta_Sans'] text-sm tracking-widest uppercase text-[#e894ff]/50 hover:text-[#f4bdff] underline-offset-8 hover:underline transition-opacity duration-400" href="#">[EDIT_ME_LATER: Footer Link 1]</a>
+<a class="font-['Plus_Jakarta_Sans'] text-sm tracking-widest uppercase text-[#e894ff]/50 hover:text-[#f4bdff] underline-offset-8 hover:underline transition-opacity duration-400" href="#">[EDIT_ME_LATER: Footer Link 2]</a>
+<a class="font-['Plus_Jakarta_Sans'] text-sm tracking-widest uppercase text-[#e894ff]/50 hover:text-[#f4bdff] underline-offset-8 hover:underline transition-opacity duration-400" href="#">[EDIT_ME_LATER: Footer Link 3]</a>
+<a class="font-['Plus_Jakarta_Sans'] text-sm tracking-widest uppercase text-[#e894ff]/50 hover:text-[#f4bdff] underline-offset-8 hover:underline transition-opacity duration-400" href="#">[EDIT_ME_LATER: Footer Link 4]</a>
+</div>
+<div class="flex gap-4">
+<a class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-high text-primary hover:scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined text-xl">[EDIT_ME_LATER: Social Icon 1]</span>
+</a>
+<a class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-high text-primary hover:scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined text-xl">[EDIT_ME_LATER: Social Icon 2]</span>
+</a>
+</div>
+</div>
+<div class="px-12 pb-12">
+<div class="w-full h-px bg-[#e894ff]/10 mb-12"></div>
+<div class="flex flex-col md:flex-row justify-between text-[10px] text-[#e894ff]/30 tracking-[0.3em] font-bold uppercase gap-4">
+<div>[EDIT_ME_LATER: Legal Link 1]</div>
+<div>[EDIT_ME_LATER: Legal Link 2]</div>
+<div>[EDIT_ME_LATER: Legal Link 3]</div>
+<div>[EDIT_ME_LATER: Legal Link 4]</div>
+</div>
+</div>
+</footer>
+</body></html>

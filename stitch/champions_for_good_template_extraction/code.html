@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CHAMPIONS FOR GOOD | ELECTRIC PRESTIGE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#b3b4b4",
+                        "on-surface": "#ffd5ff",
+                        "inverse-primary": "#893da1",
+                        "primary-container": "#e894ff",
+                        "on-secondary-container": "#daa8dd",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#4c2652",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "surface-tint": "#f0b0ff",
+                        "outline-variant": "#4e4350",
+                        "surface-container-high": "#401a47",
+                        "outline": "#9b8c9b",
+                        "primary": "#f4bdff",
+                        "primary-fixed": "#fbd7ff",
+                        "error-container": "#93000a",
+                        "secondary-container": "#633a68",
+                        "on-background": "#ffd5ff",
+                        "inverse-surface": "#ffd5ff",
+                        "surface-bright": "#512a57",
+                        "on-primary-container": "#6d2186",
+                        "on-tertiary": "#2f3131",
+                        "secondary-fixed": "#ffd5ff",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary": "#47214d",
+                        "surface-container-lowest": "#1f0027",
+                        "on-primary": "#54006d",
+                        "surface-container-low": "#300a37",
+                        "surface": "#26022e",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-primary-fixed": "#330044",
+                        "on-primary-fixed-variant": "#6f2287",
+                        "surface-dim": "#26022e",
+                        "secondary": "#e9b5ec",
+                        "secondary-fixed-dim": "#e9b5ec",
+                        "background": "#26022e",
+                        "inverse-on-surface": "#47214d",
+                        "primary-fixed-dim": "#f0b0ff",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-tertiary-container": "#444646",
+                        "on-secondary-fixed-variant": "#603865",
+                        "on-surface-variant": "#d2c2d1",
+                        "on-secondary-fixed": "#300a37",
+                        "surface-variant": "#4c2652",
+                        "surface-container": "#340f3b",
+                        "tertiary": "#cfcfd0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #26022e; color: #ffd5ff; }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+        .glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#26022e]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(31,0,39,0.15)]">
+<nav class="flex justify-between items-center px-8 py-4 w-full max-w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#f4bdff] text-2xl animate-pulse" style="font-variation-settings: 'FILL' 1;">token</span>
+<span class="text-2xl font-black tracking-tighter text-[#f4bdff] font-['Space_Grotesk'] uppercase">CHAMPIONS FOR GOOD</span>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-[#f4bdff] border-b-2 border-[#f4bdff] pb-1" href="#">HOME</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-[#f4bdff]/60 hover:text-[#f4bdff] transition-colors" href="#">NO BORING</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-[#f4bdff]/60 hover:text-[#f4bdff] transition-colors" href="#">COMMUNITY</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-[#f4bdff]/60 hover:text-[#f4bdff] transition-colors" href="#">MISSION</a>
+</div>
+<button class="bg-primary-container text-on-primary-container font-['Space_Grotesk'] font-bold tracking-tighter uppercase px-6 py-2 rounded-full hover:scale-105 hover:bg-[#401a47] transition-all duration-300">
+                JOIN THE MOVEMENT
+            </button>
+</nav>
+</header>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative px-8 py-20 min-h-[795px] flex flex-col justify-center overflow-hidden">
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-30 pointer-events-none">
+<div class="w-full h-full bg-gradient-to-l from-primary/20 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-8">
+<span class="inline-block py-1 px-3 bg-surface-container-high text-primary text-xs font-bold tracking-[0.2em] rounded-full uppercase">THE NEW PRESTIGE</span>
+<h1 class="text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter uppercase">
+                        FOR THOSE <br/>
+<span class="text-primary italic">WHO CARE</span> <br/>
+                        ABOUT IMPACT.
+                    </h1>
+<p class="text-lg text-on-surface-variant max-w-md">
+                        A curated collective of visionaries, athletes, and creators redefining what it means to give back in the digital age.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="px-8 py-4 bg-primary text-on-primary font-bold rounded-full hover:scale-105 transition-transform duration-300">EXPLORE MEMBERSHIP</button>
+<button class="px-8 py-4 bg-surface-container-high border border-outline/20 text-on-surface font-bold rounded-full hover:bg-surface-bright transition-colors">WATCH FILM</button>
+</div>
+</div>
+<div class="relative">
+<div class="rounded-xl overflow-hidden aspect-[4/5] shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="Modern high-fashion editorial portrait of a visionary individual in a violet-lit studio setting with deep shadows and neon accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZhFlwWbOCbCt1axkSUwbiMiWUyaa5rFP6ZbrQxtcknHDTCV_SXIood3BsDIJX6STDmyEjTCpwOei1kIonFZ_2WWxSRUYw_ag95QZmkGEoWMXFZfjYcyaQiiDeI_AVZgv1cqC3yJhp3a4VD2fe7XCaCA70NGj1qg72txY7m2LmldM5z4ALAQctVkr0QldDsuxjIl_dMJL6pKyqJSCjiFhB1ebs-znpQuTXrCu0emLgsFAMXGHGlFwVUh9hhUEvYX90s089RO2igkhc"/>
+</div>
+<div class="absolute -bottom-10 -left-10 w-48 h-48 bg-primary-container p-6 rounded-xl flex flex-col justify-end hidden md:flex">
+<span class="text-4xl font-black text-on-primary-container leading-none">01</span>
+<p class="text-on-primary-container font-bold text-xs mt-2 uppercase tracking-widest">Global Chapters</p>
+</div>
+</div>
+</div>
+</section>
+<!-- No Boring Section (Bento) -->
+<section class="py-32 px-8 bg-surface-container-low rounded-xl mx-4">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-2xl">
+<h2 class="text-5xl font-bold tracking-tighter uppercase mb-4">NO BORING PHILANTHROPY</h2>
+<p class="text-on-surface-variant text-lg">We've replaced the gala dinners with high-octane experiences and digital innovation. This is the new era of impact.</p>
+</div>
+<div class="text-primary font-black text-7xl opacity-20">02</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+<div class="md:col-span-8 bg-surface-container-high rounded-lg overflow-hidden relative group">
+<img class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="Close-up of high-end studio audio equipment with glowing violet lights reflecting on metallic surfaces" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE2qHIMAxlgnMrpoBva6eb0U9opsHePktk29qlvl6RhJmmdqTQ_wxLcdKk7lS83659k1zu38sAhkqK8vr7XM1ABfGKJi0fdW2bxGQYVuvRyBIyKzUYeFlbsT0YGJvv6X2BipHt9tDVGf1f2uf5q8eMxjWCZ5Lc-iwG6UEuApi1_OkYH0wpS-YkwWMiueDaevHRjxEKGbB3maY7nDftu3_T636dP7DiEeQVI5Whm50Y5S0HNzXvwJMKOCLLeU1h-yUYdJtIBVkFCXeg"/>
+<div class="absolute inset-0 p-12 flex flex-col justify-end bg-gradient-to-t from-background to-transparent">
+<h3 class="text-3xl font-bold mb-2">DIGITAL COLLECTIBLES</h3>
+<p class="text-on-surface-variant max-w-sm">Exclusive ownership of impact moments captured by world-class creators.</p>
+</div>
+</div>
+<div class="md:col-span-4 bg-primary p-12 rounded-lg flex flex-col justify-between">
+<span class="material-symbols-outlined text-on-primary text-6xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<div>
+<h3 class="text-3xl font-black text-on-primary leading-tight mb-4 uppercase">INSTANT <br/>ACTIVATION</h3>
+<p class="text-on-primary/80">Launch campaigns in minutes, not months.</p>
+</div>
+</div>
+<div class="md:col-span-4 bg-surface-container-high rounded-lg overflow-hidden relative h-64 md:h-auto">
+<div class="p-8 h-full flex flex-col justify-center">
+<div class="text-5xl font-black text-primary mb-2">94%</div>
+<p class="text-sm uppercase tracking-widest font-bold">Community Growth Rate</p>
+</div>
+</div>
+<div class="md:col-span-8 bg-surface-container-high rounded-lg overflow-hidden relative group">
+<img class="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700" data-alt="Abstract aerial view of a dynamic crowd in a concert setting with electric purple lighting and motion blur" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwuQu4xHghNuZ1CXNZ2gVLsjxmAfWudxlwJ06fPE0akXoUvbxljUwdp439Nrelu3r5hHvM4woYeHqyA4GDH8Ys57K7NMLS4vUhEQ1Z6cPG8kZZJXAj201KJR-UL53fsfi6XrZ8_3cWwaeoSNEEzgX6hM0EiGcT4-ZzJ5c48ZiuIBgdYpaAhaWmKhzb9Y-JETR8cssfLhRbZRCx_IawhrOecW8rDhd8p9-_uQroWp0dOygE15aTVouVXz6ZmHa74PyFLWhzpKRrdAy6"/>
+<div class="absolute inset-0 p-8 flex items-center">
+<h3 class="text-2xl font-bold uppercase tracking-tighter">Immersive Events &amp; Experiences</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Values Section (Horizontal Scroll/Clean Cards) -->
+<section class="py-32 px-8 overflow-hidden">
+<div class="max-w-7xl mx-auto mb-16">
+<h2 class="text-5xl font-bold tracking-tighter uppercase">OUR VALUES</h2>
+</div>
+<div class="flex gap-8 overflow-x-auto no-scrollbar pb-12 snap-x">
+<!-- Value Card 1 -->
+<div class="min-w-[350px] md:min-w-[450px] bg-surface-container-low p-12 rounded-xl snap-center hover:bg-surface-container-high transition-colors">
+<span class="text-primary font-black text-5xl block mb-8">01</span>
+<h3 class="text-2xl font-bold mb-4 uppercase">Radical Transparency</h3>
+<p class="text-on-surface-variant leading-relaxed">We leverage blockchain technology to ensure every single dollar of impact is trackable from source to solution.</p>
+</div>
+<!-- Value Card 2 -->
+<div class="min-w-[350px] md:min-w-[450px] bg-surface-container-low p-12 rounded-xl snap-center hover:bg-surface-container-high transition-colors">
+<span class="text-primary font-black text-5xl block mb-8">02</span>
+<h3 class="text-2xl font-bold mb-4 uppercase">Cultural Relevance</h3>
+<p class="text-on-surface-variant leading-relaxed">Philanthropy should be as exciting as fashion or music. We bridge the gap between cause and culture.</p>
+</div>
+<!-- Value Card 3 -->
+<div class="min-w-[350px] md:min-w-[450px] bg-surface-container-low p-12 rounded-xl snap-center hover:bg-surface-container-high transition-colors">
+<span class="text-primary font-black text-5xl block mb-8">03</span>
+<h3 class="text-2xl font-bold mb-4 uppercase">Athlete Led</h3>
+<p class="text-on-surface-variant leading-relaxed">Our platform is built for and by elite athletes who want to leverage their platform for meaningful change.</p>
+</div>
+<!-- Value Card 4 -->
+<div class="min-w-[350px] md:min-w-[450px] bg-surface-container-low p-12 rounded-xl snap-center hover:bg-surface-container-high transition-colors">
+<span class="text-primary font-black text-5xl block mb-8">04</span>
+<h3 class="text-2xl font-bold mb-4 uppercase">Collective Power</h3>
+<p class="text-on-surface-variant leading-relaxed">We believe in the multiplier effect. When champions unite, the potential for good is limitless.</p>
+</div>
+</div>
+</section>
+<!-- Memberships -->
+<section class="py-32 px-8 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto text-center mb-20">
+<h2 class="text-6xl font-black tracking-tighter uppercase mb-6">PICK YOUR TIER</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">Join the movement at the level that fits your ambition. Each tier unlocks unique access and impact opportunities.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+<!-- Tier 1 -->
+<div class="bg-surface p-10 rounded-xl flex flex-col border border-outline/10">
+<h3 class="text-xl font-bold mb-1 uppercase">THE ALLY</h3>
+<div class="text-4xl font-black text-primary mb-8">$0<span class="text-sm font-normal text-on-surface-variant">/YR</span></div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Community Discord Access</li>
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Monthly Impact Newsletter</li>
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Basic Digital Badge</li>
+</ul>
+<button class="w-full py-4 bg-surface-container-high font-bold rounded-lg hover:bg-surface-bright transition-colors">GET STARTED</button>
+</div>
+<!-- Tier 2 (Featured) -->
+<div class="bg-primary-container p-10 rounded-xl flex flex-col shadow-[0_0_100px_rgba(232,148,255,0.15)] relative scale-105 z-10">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-on-primary-container text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest">MOST POPULAR</div>
+<h3 class="text-xl font-bold mb-1 uppercase text-on-primary-container">THE CHAMPION</h3>
+<div class="text-4xl font-black text-on-primary-container mb-8">$499<span class="text-sm font-normal opacity-60">/YR</span></div>
+<ul class="space-y-4 mb-10 flex-grow text-on-primary-container">
+<li class="flex items-center gap-3 text-sm font-medium"><span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span> VIP Event Invites</li>
+<li class="flex items-center gap-3 text-sm font-medium"><span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span> Exclusive Merch Drops</li>
+<li class="flex items-center gap-3 text-sm font-medium"><span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span> Impact Voting Rights</li>
+<li class="flex items-center gap-3 text-sm font-medium"><span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span> NFT Membership Key</li>
+</ul>
+<button class="w-full py-4 bg-on-primary-container text-primary-container font-bold rounded-lg hover:opacity-90 transition-opacity">JOIN THE RANKS</button>
+</div>
+<!-- Tier 3 -->
+<div class="bg-surface p-10 rounded-xl flex flex-col border border-outline/10">
+<h3 class="text-xl font-bold mb-1 uppercase">THE LEGEND</h3>
+<div class="text-4xl font-black text-primary mb-8">$2,500<span class="text-sm font-normal text-on-surface-variant">/YR</span></div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> 1-on-1 Athlete Mentorship</li>
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Governance Board Seat</li>
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Concierge Concierge</li>
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Founders Circle Access</li>
+</ul>
+<button class="w-full py-4 bg-surface-container-high font-bold rounded-lg hover:bg-surface-bright transition-colors">INQUIRE NOW</button>
+</div>
+</div>
+</section>
+<!-- Testimonials/Stickers -->
+<section class="py-32 px-8 overflow-hidden relative">
+<div class="max-w-7xl mx-auto flex flex-col items-center text-center">
+<div class="relative w-full max-w-4xl py-20 px-8 bg-surface-container-low rounded-xl">
+<span class="material-symbols-outlined text-primary text-6xl mb-6 opacity-40">format_quote</span>
+<h2 class="text-3xl md:text-5xl font-medium tracking-tight italic mb-10 leading-snug">
+                        "CHAMPIONS FOR GOOD ISN'T JUST ANOTHER CHARITY PLATFORM. IT'S THE INFRASTRUCTURE FOR THE FUTURE OF HOW WE EMPOWER COMMUNITIES THROUGH TECHNOLOGY AND CULTURE."
+                    </h2>
+<div class="flex flex-col items-center">
+<div class="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-primary">
+<img class="w-full h-full object-cover" data-alt="Professional portrait of a tech visionary with sharp focus and clean studio lighting on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd9NwCMulZLmFY0ubBmrRKUTXIEpEaG6jyPdk-1kiI5qRiOtyfwCxi-Jk9iBD-s7-bDOfWIp_pIBxqLAqB0IcjXWwuG_qlJ4NqifU7ebamYM4GcQWhCrPRbirmOOI4sSmhSWeKT6XsHlzgA4lHBszZbpoMkzVyKw0LxByRjScMCNdm7uh4JQzbTNFJo4ULBblPeASHGDEHbup4eWRrFWkFBsiDbkXXGDPpxbYlXF0ivmh-aB4ufB3WEPXBI3ed1G1MHiG8Pvh6iRhn"/>
+</div>
+<div class="font-bold text-lg uppercase tracking-widest">MARCUS REED</div>
+<div class="text-xs text-primary font-bold tracking-widest uppercase">FOUNDING MEMBER &amp; OLYMPIAN</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-t-[3rem] mt-20 bg-[#1f0027] shadow-none">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full gap-12">
+<div class="flex flex-col gap-6 items-center md:items-start">
+<div class="font-['Space_Grotesk'] font-bold text-[#f4bdff] text-4xl tracking-tighter uppercase">CHAMPIONS FOR GOOD</div>
+<p class="text-[#e894ff]/50 font-['Plus_Jakarta_Sans'] text-sm tracking-widest uppercase text-center md:text-left">
+                    © 2024 CHAMPIONS FOR GOOD. ELECTRIC PRESTIGE DIGITAL.
+                </p>
+</div>
+<div class="flex flex-wrap justify-center gap-10">
+<a class="font-['Plus_Jakarta_Sans'] text-sm tracking-widest uppercase text-[#e894ff]/50 hover:text-[#f4bdff] underline-offset-8 hover:underline transition-opacity duration-400" href="#">NO BORING</a>
+<a class="font-['Plus_Jakarta_Sans'] text-sm tracking-widest uppercase text-[#e894ff]/50 hover:text-[#f4bdff] underline-offset-8 hover:underline transition-opacity duration-400" href="#">COMMUNITY</a>
+<a class="font-['Plus_Jakarta_Sans'] text-sm tracking-widest uppercase text-[#e894ff]/50 hover:text-[#f4bdff] underline-offset-8 hover:underline transition-opacity duration-400" href="#">MISSION</a>
+<a class="font-['Plus_Jakarta_Sans'] text-sm tracking-widest uppercase text-[#e894ff]/50 hover:text-[#f4bdff] underline-offset-8 hover:underline transition-opacity duration-400" href="#">VALUES</a>
+<a class="font-['Plus_Jakarta_Sans'] text-sm tracking-widest uppercase text-[#e894ff]/50 hover:text-[#f4bdff] underline-offset-8 hover:underline transition-opacity duration-400" href="#">BENEFITS</a>
+</div>
+<div class="flex gap-4">
+<a class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-high text-primary hover:scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+<a class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-high text-primary hover:scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined text-xl">public</span>
+</a>
+</div>
+</div>
+<div class="px-12 pb-12">
+<div class="w-full h-px bg-[#e894ff]/10 mb-12"></div>
+<div class="flex flex-col md:flex-row justify-between text-[10px] text-[#e894ff]/30 tracking-[0.3em] font-bold uppercase gap-4">
+<div>TERMS OF SERVICE</div>
+<div>PRIVACY POLICY</div>
+<div>IMPACT REPORT 2024</div>
+<div>CONTACT THE COLLECTIVE</div>
+</div>
+</div>
+</footer>
+</body></html>

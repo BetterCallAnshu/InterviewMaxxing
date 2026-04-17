@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterviewMaxxing | Step 1: Select Plan</title>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#050505] text-[#FAFAFA] font-body selection:bg-brand-lime selection:text-black min-h-screen relative overflow-x-hidden">
+
+    <div class="fixed inset-0 grid-overlay-global pointer-events-none z-0"></div>
+
+    <!-- Header Navigation Shell -->
+    <header class="sticky top-0 z-50 bg-[#050505] border-b border-white/10 flex justify-between items-center px-6 py-4 w-full">
+        <a href="index.html" class="text-2xl font-bold tracking-tighter text-[#FAFAFA] font-headline">INTERVIEWMAXING</a>
+        <div class="hidden md:flex gap-8 items-center">
+            <a class="text-brand-lime font-label text-xs uppercase tracking-widest transition-colors active:scale-95 duration-75" href="#">Your Plan</a>
+            <a class="text-brand-muted font-label text-xs uppercase tracking-widest transition-colors cursor-default" href="#">Customise</a>
+            <a class="text-brand-muted font-label text-xs uppercase tracking-widest transition-colors cursor-default" href="#">Checkout</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <a href="index.html" class="material-symbols-outlined text-brand-muted hover:text-white transition-colors">arrow_back</a>
+        </div>
+    </header>
+
+    <!-- Progress Bar -->
+    <div class="w-full h-1 bg-[#1a1a1a] relative z-10">
+        <div class="h-full bg-brand-cobalt w-1/3"></div>
+    </div>
+
+    <main class="relative z-10 max-w-7xl mx-auto px-6 py-16 md:py-24">
+        <!-- Hero Section -->
+        <div class="text-center mb-16 space-y-4">
+            <div class="font-label text-brand-muted text-[11px] tracking-[0.3em] uppercase">Phase 01 / Selection</div>
+            <h1 class="font-headline text-6xl md:text-8xl tracking-tight leading-none">PICK YOUR LEVEL.</h1>
+            <p class="text-brand-muted font-body text-sm md:text-base max-w-md mx-auto">No commitment. Upgrade or downgrade anytime.</p>
+        </div>
+
+        <!-- Plan Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            <!-- Card 1: STARTER -->
+            <div class="bg-[#1A1A1A] chiseled-edge p-8 flex flex-col justify-between group transition-all duration-300 hover:border-white/20">
+                <div class="space-y-6">
+                    <div>
+                        <div class="font-label text-brand-muted text-[11px] tracking-widest uppercase mb-1">FREE FOREVER</div>
+                        <h2 class="font-headline text-4xl mb-4">STARTER</h2>
+                        <div class="flex items-baseline gap-1">
+                            <span class="font-headline text-6xl text-white">₹0</span>
+                            <span class="text-brand-muted font-body text-sm">/month</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 font-label text-xs uppercase tracking-tight text-white/80">
+                        <li class="flex items-center gap-3"><span class="text-brand-lime">→</span> Basic Question Bank</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-lime">→</span> 1 Mock Session / Mo</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-lime">→</span> Community Access</li>
+                    </ul>
+                </div>
+                <button onclick="selectPlan('starter')" class="mt-12 w-full py-4 border border-white/20 font-label text-xs uppercase tracking-widest hover:bg-white/5 transition-colors active:scale-95">
+                    Continue Free →
+                </button>
+            </div>
+
+            <!-- Card 2: MAXXER -->
+            <div class="relative bg-[#1A1A1A] chiseled-edge p-8 flex flex-col justify-between scale-105 z-20 shadow-[0_0_100px_rgba(170,255,0,0.05)] border border-brand-lime/20 hover:border-brand-lime transition-colors">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(170,255,0,0.08)_0%,transparent_70%)] pointer-events-none"></div>
+                <div class="space-y-6 relative z-10">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="inline-block bg-brand-lime text-black px-2 py-0.5 font-label text-[10px] font-bold tracking-widest uppercase mb-2">MOST POPULAR</div>
+                            <h2 class="font-headline text-4xl mb-4">MAXXER</h2>
+                            <div class="flex items-baseline gap-1">
+                                <span class="font-headline text-6xl text-white" id="price-maxxer">₹499</span>
+                                <span class="text-brand-muted font-body text-sm">/month</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 font-label text-xs uppercase tracking-tight text-white/90">
+                        <li class="flex items-center gap-3"><span class="text-brand-lime">→</span> Advanced Question Matrix</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-lime">→</span> Unlimited AI Mocks</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-lime">→</span> Real-time Tone Analysis</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-lime">→</span> Eye-Contact Tracking</li>
+                    </ul>
+                </div>
+                <button onclick="selectPlan('maxxer')" class="mt-12 w-full py-4 bg-brand-lime text-black font-label text-xs font-bold uppercase tracking-widest hover:brightness-110 transition-all active:translate-y-[-2px]">
+                    Start Maxxing →
+                </button>
+            </div>
+
+            <!-- Card 3: LOCKED IN -->
+            <div class="bg-[#1A1A1A] chiseled-edge p-8 flex flex-col justify-between transition-all duration-300 border border-transparent hover:border-brand-cobalt">
+                <div class="space-y-6">
+                    <div>
+                        <div class="font-label text-brand-muted text-[11px] tracking-widest uppercase mb-1">ELITE TIER</div>
+                        <h2 class="font-headline text-4xl mb-4 text-[#FAFAFA]">LOCKED IN</h2>
+                        <div class="flex items-baseline gap-1">
+                            <span class="font-headline text-6xl text-[#FAFAFA]" id="price-lockedin">₹999</span>
+                            <span class="text-brand-muted font-body text-sm">/month</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 font-label text-xs uppercase tracking-tight text-white/80">
+                        <li class="flex items-center gap-3"><span class="text-brand-lime">→</span> All Maxxer Features</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-lime">→</span> 1-on-1 Human Coaching</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-lime">→</span> Resume Deep-Scan</li>
+                        <li class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3"><span class="text-brand-lime">→</span> FAANG Interview Prep</div>
+                            <span class="px-1.5 py-0.5 bg-brand-cobalt/20 text-brand-cobalt border border-brand-cobalt/30 text-[9px]">EXCLUSIVE</span>
+                        </li>
+                    </ul>
+                </div>
+                <button onclick="selectPlan('lockedin')" class="mt-12 w-full py-4 border border-brand-cobalt text-brand-cobalt font-label text-xs uppercase tracking-widest hover:bg-brand-cobalt/10 transition-colors active:scale-95">
+                    Go Locked In →
+                </button>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Decorative Corner Visual -->
+    <div class="fixed bottom-0 right-0 w-96 h-96 bg-[radial-gradient(circle_at_bottom_right,rgba(59,91,219,0.08)_0%,transparent_70%)] pointer-events-none z-0"></div>
+
+    <script src="js/layout.js"></script>
+    <script src="js/signup.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check if plan was passed in URL from pricing page
+            const urlParams = new URLSearchParams(window.location.search);
+            const planParam = urlParams.get('plan');
+            if (planParam && ["starter", "maxxer", "lockedin"].includes(planParam)) {
+                selectPlan(planParam);
+            }
+        });
+
+        function selectPlan(plan) {
+            window.SignupStore.updateState({ plan: plan, billing: 'monthly' }); // Default monthly for now
+            window.location.href = 'signup-step2.html';
+        }
+    </script>
+</body>
+</html>
