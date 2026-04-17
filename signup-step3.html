@@ -10,6 +10,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="js/tailwind-config.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        (function() { emailjs.init({ publicKey: 'B_Y8sPGzBylJCMtBY' }); })();
+    </script>
 </head>
 <body class="bg-[#050505] text-[#FAFAFA] font-body selection:bg-brand-lime selection:text-black min-h-screen relative">
     <div class="fixed inset-0 grid-overlay-global pointer-events-none z-0"></div>
@@ -270,21 +275,47 @@
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
                 
-                // Super basic validation pass check
+                // Basic validation
                 if(!document.getElementById('tos-agree').checked) return alert("Must agree to TOS.");
-                if(emailErr.classList.contains('hidden') === false) return;
+                if(!emailErr.classList.contains('hidden')) return;
                 
+                const userEmail = emailInp.value.trim();
+                if (!userEmail) { emailInp.focus(); return; }
+
+                // Save email to store so success page can access it
+                window.SignupStore.updateState({ email: userEmail });
+
                 // Loading State
-                btnText.innerText = 'PROCESSING...';
+                btnText.innerText = 'SENDING CONFIRMATION...';
                 submitBtn.classList.replace('bg-brand-lime', 'bg-brand-cobalt');
                 submitBtn.classList.replace('text-black', 'text-white');
                 submitBtn.classList.remove('shadow-[4px_4px_0_#3B5BDB]');
                 btnLoad.classList.remove('hidden');
                 submitBtn.disabled = true;
-                
-                setTimeout(() => {
-                    window.location.href = 'signup-success.html';
-                }, 2000);
+
+                // Build email template params from signup store
+                const templateParams = {
+                    to_email:   userEmail,
+                    plan_name:  planData.name,
+                    plan_price: isFree ? 'FREE' : `₹${total.toFixed(0)} / month`,
+                    user_role:  state.role  || 'Not specified',
+                };
+
+                emailjs
+                    .send(
+                        'service_16d39px',
+                        'template_j1z5boo',
+                        templateParams
+                    )
+                    .then(() => {
+                        // Email sent — proceed to success
+                        window.location.href = 'signup-success.html';
+                    })
+                    .catch((err) => {
+                        // Even if email fails, don't block the user — log & continue
+                        console.warn('EmailJS error (non-blocking):', err);
+                        window.location.href = 'signup-success.html';
+                    });
             });
         });
     </script>
