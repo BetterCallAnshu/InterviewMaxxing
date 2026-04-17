@@ -63,10 +63,10 @@ const injectLayout = () => {
                     </a>
                     <p class="font-body text-brand-text text-sm">Stop Fumbling. Start Maxxing.</p>
                     <div class="flex gap-4 pt-4">
-                        <a href="#" class="text-brand-muted hover:text-brand-cobalt transition-colors"><span class="material-symbols-outlined">work</span></a>
-                        <a href="#" class="text-brand-muted hover:text-brand-cobalt transition-colors"><span class="material-symbols-outlined">alternate_email</span></a>
+                        <a href="https://www.linkedin.com/in/anshuman-yadav-2908682bb/" target="_blank" rel="noopener noreferrer" class="text-brand-muted hover:text-brand-cobalt transition-colors"><span class="material-symbols-outlined">work</span></a>
+                        <a href="https://x.com/bettercall14140" target="_blank" rel="noopener noreferrer" class="text-brand-muted hover:text-brand-cobalt transition-colors"><span class="material-symbols-outlined">alternate_email</span></a>
                         <a href="#" class="text-brand-muted hover:text-brand-cobalt transition-colors"><span class="material-symbols-outlined">photo_camera</span></a>
-                        <a href="#" class="text-brand-muted hover:text-brand-cobalt transition-colors"><span class="material-symbols-outlined">play_circle</span></a>
+                        <a href="https://youtu.be/ZE_YEn-okfk?si=sdf-eWN-rei9bVfj" target="_blank" rel="noopener noreferrer" class="text-brand-muted hover:text-brand-cobalt transition-colors"><span class="material-symbols-outlined">play_circle</span></a>
                     </div>
                 </div>
                 
