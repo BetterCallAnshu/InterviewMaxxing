@@ -123,7 +123,12 @@
                 you freeze?</h2>
         </div>
 
-        <div class="flex gap-8 overflow-x-auto no-scrollbar pb-12 snap-x">
+        <div class="relative group">
+            <button id="problem-scroll-left" class="absolute left-0 top-[40%] -translate-y-1/2 -translate-x-4 z-10 bg-[#0a0a0a] border border-white/20 p-3 hover:border-brand-lime hover:text-brand-lime transition-all hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 shadow-[4px_4px_0_#AAFF00] active:translate-y-[calc(-50%+2px)] active:shadow-none text-white">
+                <span class="material-symbols-outlined">chevron_left</span>
+            </button>
+            
+            <div id="problem-carousel" class="flex gap-8 overflow-x-auto no-scrollbar pb-12 snap-x scroll-smooth">
             <!-- Card 1 -->
             <div
                 class="min-w-[350px] md:min-w-[450px] bg-brand-surface border border-white/10 chiseled-edge p-10 snap-center hover:border-brand-cobalt transition-colors group relative overflow-hidden">
@@ -168,6 +173,11 @@
                 <p class="text-brand-muted font-body leading-relaxed">"We went with another candidate." You never learn
                     what went wrong, keeping you stuck in the same loop.</p>
             </div>
+            </div>
+            
+            <button id="problem-scroll-right" class="absolute right-0 top-[40%] -translate-y-1/2 translate-x-4 z-10 bg-[#0a0a0a] border border-white/20 p-3 hover:border-brand-lime hover:text-brand-lime transition-all hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 shadow-[4px_4px_0_#AAFF00] active:translate-y-[calc(-50%+2px)] active:shadow-none text-white">
+                <span class="material-symbols-outlined">chevron_right</span>
+            </button>
         </div>
     </section>
 
@@ -799,45 +809,62 @@
             // Question Bank Interaction
             const questionsData = {
                 software: [
-                    { level: 'TOUGH', color: 'red-500', text: '"Design a monetization strategy for WhatsApp Pay in Tier-3 India."' },
-                    { level: 'MEDIUM', color: 'yellow-500', text: '"Tell me about a failed project and what you learned."' }
+                    { level: 'TOUGH', type: 'text-red-500', bg: 'border-red-500/20', text: '"Design a rate limiter for a distributed system handling 1M RPS."' },
+                    { level: 'MEDIUM', type: 'text-yellow-500', bg: 'border-yellow-500/20', text: '"Tell me about a time you had to refactor a legacy codebase under a tight deadline."' }
                 ],
                 marketing: [
-                    { level: 'MEDIUM', color: 'yellow-500', text: `\"How would you measure the success of a branding campaign where conversions aren't direct?\"` },
-                    { level: 'TOUGH', color: 'red-500', text: `\"Launch a new energy drink in a market already dominated by Red Bull. What is your GTM strategy?\"` }
+                    { level: 'MEDIUM', type: 'text-yellow-500', bg: 'border-yellow-500/20', text: '"How would you measure the ROI of a 6-month brand awareness campaign?"' },
+                    { level: 'EASY', type: 'text-green-500', bg: 'border-green-500/20', text: '"Describe a successful go-to-market strategy you executed."' }
                 ],
                 finance: [
-                    { level: 'TOUGH', color: 'red-500', text: '"Walk me through a DCF model for a high-growth startup with negative cash flow."' },
-                    { level: 'HARD', color: 'orange-500', text: '"If you had 10 million dollars right now, how would you allocate it in the current macro environment?"' }
+                    { level: 'TOUGH', type: 'text-red-500', bg: 'border-red-500/20', text: '"Walk me through an LBO model step-by-step."' },
+                    { level: 'MEDIUM', type: 'text-yellow-500', bg: 'border-yellow-500/20', text: '"How do you evaluate the risk profile of a new emerging market?"' }
                 ]
             };
 
             const catBtns = document.querySelectorAll('.bank-cat-btn');
             const qContainer = document.getElementById('bank-questions-container');
 
-            catBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Reset buttons
-                    catBtns.forEach(b => {
-                        b.classList.remove('bg-brand-cobalt', 'text-white');
-                        b.classList.add('border', 'border-white/10', 'text-brand-muted');
+            if(catBtns.length > 0) {
+                catBtns.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        // Reset buttons
+                        catBtns.forEach(b => {
+                            b.className = 'bank-cat-btn border border-white/10 text-brand-muted px-4 py-2 hover:bg-white/5 hover:text-white transition-colors';
+                        });
+                        // Activate current
+                        e.target.className = 'bank-cat-btn bg-brand-cobalt text-white px-4 py-2 transition-colors';
+
+                        const cat = e.target.dataset.cat;
+                        const data = questionsData[cat];
+
+                        qContainer.innerHTML = data.map(q => `
+                            <div class="bg-[#111] p-6 border border-white/5 hover:border-brand-cobalt transition-colors animate-on-scroll visible">
+                                <span class="text-[10px] ${q.type} font-label border ${q.bg} px-2 py-1 mb-4 inline-block">${q.level}</span>
+                                <p class="font-bold mb-4">${q.text}</p>
+                                <a href="#" class="text-brand-cobalt text-xs font-label uppercase hover:text-white transition-colors">Practice This →</a>
+                            </div>
+                        `).join('');
                     });
-                    // Active button
-                    btn.classList.remove('border', 'border-white/10', 'text-brand-muted');
-                    btn.classList.add('bg-brand-cobalt', 'text-white');
-
-                    const category = btn.dataset.cat;
-                    const data = questionsData[category];
-
-                    qContainer.innerHTML = data.map(q => `
-                         <div class="bg-[#111] p-6 border border-white/5 hover:border-brand-cobalt transition-colors">
-                             <span class="text-[10px] text-${q.color} font-label border border-${q.color}/20 px-2 py-1 mb-4 inline-block">${q.level}</span>
-                             <p class="font-bold mb-4">${q.text}</p>
-                             <a href="#" class="text-brand-cobalt text-xs font-label uppercase mt-auto">Practice This →</a>
-                         </div>
-                    `).join('');
                 });
-            });
+            }
+
+            // Problem Carousel Logic
+            const carousel = document.getElementById('problem-carousel');
+            const scrollLeftBtn = document.getElementById('problem-scroll-left');
+            const scrollRightBtn = document.getElementById('problem-scroll-right');
+
+            if (carousel && scrollLeftBtn && scrollRightBtn) {
+                const scrollAmount = 400; // approximate width of a card
+
+                scrollLeftBtn.addEventListener('click', () => {
+                    carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                });
+
+                scrollRightBtn.addEventListener('click', () => {
+                    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                });
+            }
         });
     </script>
 </body>
